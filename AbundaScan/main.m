@@ -1,8 +1,8 @@
 //
 //  main.m
-//  AbundaScan
+//  BarcodeScanner
 //
-//  Created by David Mayer on 12/1/12.
+//  Created by David Mayer on 8/15/12.
 //  Copyright (c) 2012 David Mayer. All rights reserved.
 //
 

@@ -1,27 +1,52 @@
 //
 //  DAMAppDelegate.m
-//  AbundaScan
+//  BarcodeScanner
 //
-//  Created by David Mayer on 12/1/12.
+//  Created by David Mayer on 8/15/12.
 //  Copyright (c) 2012 David Mayer. All rights reserved.
 //
 
 #import "DAMAppDelegate.h"
-
 #import "DAMViewController.h"
+
 
 @implementation DAMAppDelegate
 
+@synthesize spinner;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    self.spinner = [[loadingSpinner alloc] initWithFrame:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 100) / 2, 200, 100)];
+    [_window addSubview:self.spinner];
+    
+    //DAMViewController *vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
+    UIViewController *vc;
+    
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        
+        if(result.height == 480)
+        {
+            vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
+        }
+        if(result.height == 568)
+        {
+            vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController-5" bundle:nil];
+        }
+    }
+    
+    _window.rootViewController = vc;
+    [_window makeKeyAndVisible];
+    
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

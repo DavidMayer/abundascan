@@ -1,19 +1,17 @@
 //
 //  DAMAppDelegate.h
-//  AbundaScan
+//  BarcodeScanner
 //
-//  Created by David Mayer on 12/1/12.
+//  Created by David Mayer on 8/15/12.
 //  Copyright (c) 2012 David Mayer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@class DAMViewController;
+#import "loadingSpinner.h"
 
 @interface DAMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) DAMViewController *viewController;
+@property (strong, nonatomic) loadingSpinner *spinner;
 
 @end

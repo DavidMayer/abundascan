@@ -1,13 +1,39 @@
 //
 //  DAMViewController.h
-//  AbundaScan
+//  BarcodeScanner
 //
-//  Created by David Mayer on 12/1/12.
+//  Created by David Mayer on 8/15/12.
 //  Copyright (c) 2012 David Mayer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ZbarSDK.h"
 
-@interface DAMViewController : UIViewController
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+@interface DAMViewController : UIViewController<ZBarReaderDelegate, NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+
+@property (strong, nonatomic) IBOutlet UIView *iphone4View;
+@property (strong, nonatomic) IBOutlet UIImageView *myResultImageView;
+@property (strong, nonatomic) IBOutlet UITextView *myResultTextView;
+@property (strong, nonatomic) NSURLConnection *apiConnection;
+@property (strong, nonatomic) NSMutableData *apiData;
+@property (strong, nonatomic) IBOutlet UILabel *myResultTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *myResultUPCLabel;
+@property (strong, nonatomic) IBOutlet UILabel *myResultPriceLabel;
+@property (strong, nonatomic) IBOutlet UIButton *myScanButton;
+@property (strong, nonatomic) IBOutlet UILabel *noImageLabel;
+@property CGRect originalImageViewFrame;
+@property (strong, nonatomic) IBOutlet UINavigationBar *myNavigationBar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *myNavigationTitle;
+@property (strong, nonatomic) UIView *roundedRectView;
+@property (strong, nonatomic) IBOutlet UIView *infoView;
+@property (strong, nonatomic) IBOutlet UIView *iphone5View;
+
+
+- (IBAction)clickMyScanButton:(id)sender;
 
 @end

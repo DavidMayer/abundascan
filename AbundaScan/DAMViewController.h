@@ -31,7 +31,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @property (strong, nonatomic) IBOutlet UINavigationItem *myNavigationTitle;
 @property (strong, nonatomic) UIView *roundedRectView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
-@property (strong, nonatomic) IBOutlet UIView *iphone5View;
+
 
 
 - (IBAction)clickMyScanButton:(id)sender;

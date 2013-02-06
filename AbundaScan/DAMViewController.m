@@ -32,7 +32,7 @@
 @synthesize roundedRectView;
 @synthesize infoView;
 @synthesize iphone4View;
-@synthesize iphone5View;
+
 
 - (void)viewDidLoad
 {
@@ -47,7 +47,6 @@
         if(result.height == 480)
         {
             //iphone4View.hidden = NO;
-            //iphone5View.hidden = YES;
             roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 52, 292, 244)];
             iphone4View.backgroundColor = UIColorFromRGB(0xe5e5e5);
             [iphone4View addSubview:roundedRectView];
@@ -57,7 +56,6 @@
         {
             // iPhone 5
             //iphone4View.hidden = YES;
-            //iphone5View.hidden = NO;
             roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 62, 292, 244)];
             self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
             [self.view addSubview:roundedRectView];
@@ -89,7 +87,6 @@
     [self setMyNavigationBar:nil];
     [self setMyNavigationTitle:nil];
     [self setInfoView:nil];
-    [self setIphone5View:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

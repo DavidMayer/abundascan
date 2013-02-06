@@ -8,6 +8,7 @@
 
 #import "DAMAppDelegate.h"
 #import "DAMViewController.h"
+#import "DAMLoginViewController.h"
 
 
 @implementation DAMAppDelegate
@@ -33,7 +34,8 @@
         
         if(result.height == 480)
         {
-            vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
+            //vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
+            vc = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
         }
         if(result.height == 568)
         {

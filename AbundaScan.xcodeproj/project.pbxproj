@@ -10,19 +10,43 @@
 		9D933158166ACFBB0050E29E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933157166ACFBB0050E29E /* UIKit.framework */; };
 		9D93315A166ACFBB0050E29E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933159166ACFBB0050E29E /* Foundation.framework */; };
 		9D93315C166ACFBB0050E29E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93315B166ACFBB0050E29E /* CoreGraphics.framework */; };
-		9D933162166ACFBB0050E29E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D933160166ACFBB0050E29E /* InfoPlist.strings */; };
-		9D933164166ACFBB0050E29E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D933163166ACFBB0050E29E /* main.m */; };
-		9D933168166ACFBB0050E29E /* DAMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D933167166ACFBB0050E29E /* DAMAppDelegate.m */; };
-		9D93316A166ACFBB0050E29E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D933169166ACFBB0050E29E /* Default.png */; };
-		9D93316C166ACFBB0050E29E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93316B166ACFBB0050E29E /* Default@2x.png */; };
-		9D93316E166ACFBB0050E29E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93316D166ACFBB0050E29E /* Default-568h@2x.png */; };
-		9D933171166ACFBB0050E29E /* DAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D933170166ACFBB0050E29E /* DAMViewController.m */; };
-		9D933174166ACFBB0050E29E /* DAMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D933172166ACFBB0050E29E /* DAMViewController.xib */; };
 		9D93317C166ACFBB0050E29E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93317B166ACFBB0050E29E /* SenTestingKit.framework */; };
 		9D93317D166ACFBB0050E29E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933157166ACFBB0050E29E /* UIKit.framework */; };
 		9D93317E166ACFBB0050E29E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933159166ACFBB0050E29E /* Foundation.framework */; };
 		9D933186166ACFBC0050E29E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D933184166ACFBC0050E29E /* InfoPlist.strings */; };
 		9D933189166ACFBC0050E29E /* AbundaScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D933188166ACFBC0050E29E /* AbundaScanTests.m */; };
+		9D933193166AD0600050E29E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933192166AD0600050E29E /* libiconv.dylib */; };
+		9D933195166AD0690050E29E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933194166AD0690050E29E /* QuartzCore.framework */; };
+		9D933197166AD0700050E29E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933196166AD0700050E29E /* CoreVideo.framework */; };
+		9D93319B166AD0850050E29E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93319A166AD0850050E29E /* CoreMedia.framework */; };
+		9D93319D166AD08D0050E29E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93319C166AD08D0050E29E /* AVFoundation.framework */; };
+		9D93359616B3C14B0050E29E /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93359016B3C14B0050E29E /* libzbar.a */; };
+		9D93359716B3C14B0050E29E /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359216B3C14B0050E29E /* zbar-back.png */; };
+		9D93359816B3C14B0050E29E /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359316B3C14B0050E29E /* zbar-help.html */; };
+		9D93359916B3C14B0050E29E /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359416B3C14B0050E29E /* zbar-helpicons.png */; };
+		9D93359A16B3C14B0050E29E /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359516B3C14B0050E29E /* zbar-samples.png */; };
+		9D93376C16B3C1560050E29E /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359D16B3C1550050E29E /* Icon-Small.png */; };
+		9D93376D16B3C1560050E29E /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359E16B3C1550050E29E /* Icon-Small@2x.png */; };
+		9D93376E16B3C1560050E29E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93359F16B3C1550050E29E /* Icon.png */; };
+		9D93376F16B3C1560050E29E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D9335A016B3C1550050E29E /* Icon@2x.png */; };
+		9D93377016B3C1570050E29E /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D9335A116B3C1550050E29E /* iTunesArtwork.png */; };
+		9D9338A916B3C1570050E29E /* DAM.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93375A16B3C1560050E29E /* DAM.m */; };
+		9D9338AA16B3C1570050E29E /* DAMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93375C16B3C1560050E29E /* DAMAppDelegate.m */; };
+		9D9338AB16B3C1570050E29E /* DAMViewController-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D93375D16B3C1560050E29E /* DAMViewController-5.xib */; };
+		9D9338AC16B3C1570050E29E /* DAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93375F16B3C1560050E29E /* DAMViewController.m */; };
+		9D9338AD16B3C1570050E29E /* DAMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376016B3C1560050E29E /* DAMViewController.xib */; };
+		9D9338AE16B3C1570050E29E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376116B3C1560050E29E /* Default-568h@2x.png */; };
+		9D9338AF16B3C1570050E29E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376216B3C1560050E29E /* Default@2x.png */; };
+		9D9338B016B3C1570050E29E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376316B3C1560050E29E /* InfoPlist.strings */; };
+		9D9338B116B3C1570050E29E /* loadingSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93376616B3C1560050E29E /* loadingSpinner.m */; };
+		9D9338B216B3C1570050E29E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376716B3C1560050E29E /* logo.png */; };
+		9D9338B316B3C1570050E29E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93376816B3C1560050E29E /* main.m */; };
+		9D9338B416B3C1570050E29E /* ScanButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376916B3C1560050E29E /* ScanButton.png */; };
+		9D9338B516B3C1570050E29E /* ViewBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376A16B3C1560050E29E /* ViewBox.png */; };
+		9D9338B616B3C1570050E29E /* WhiteBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D93376B16B3C1560050E29E /* WhiteBox.png */; };
+		9D9338B916B3C38A0050E29E /* AbundaScan-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9338B716B3C38A0050E29E /* AbundaScan-Info.plist */; };
+		9D9338C016BA42540050E29E /* DAMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9338BF16BA42530050E29E /* DAMLoginViewController.m */; };
+		9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9338C216BA42750050E29E /* DAMLoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,24 +64,71 @@
 		9D933157166ACFBB0050E29E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9D933159166ACFBB0050E29E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D93315B166ACFBB0050E29E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9D93315F166ACFBB0050E29E /* AbundaScan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AbundaScan-Info.plist"; sourceTree = "<group>"; };
-		9D933161166ACFBB0050E29E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9D933163166ACFBB0050E29E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9D933165166ACFBB0050E29E /* AbundaScan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbundaScan-Prefix.pch"; sourceTree = "<group>"; };
-		9D933166166ACFBB0050E29E /* DAMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAMAppDelegate.h; sourceTree = "<group>"; };
-		9D933167166ACFBB0050E29E /* DAMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DAMAppDelegate.m; sourceTree = "<group>"; };
-		9D933169166ACFBB0050E29E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9D93316B166ACFBB0050E29E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		9D93316D166ACFBB0050E29E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9D93316F166ACFBB0050E29E /* DAMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAMViewController.h; sourceTree = "<group>"; };
-		9D933170166ACFBB0050E29E /* DAMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DAMViewController.m; sourceTree = "<group>"; };
-		9D933173166ACFBB0050E29E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DAMViewController.xib; sourceTree = "<group>"; };
 		9D93317A166ACFBB0050E29E /* AbundaScanTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbundaScanTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D93317B166ACFBB0050E29E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9D933183166ACFBC0050E29E /* AbundaScanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AbundaScanTests-Info.plist"; sourceTree = "<group>"; };
 		9D933185166ACFBC0050E29E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D933187166ACFBC0050E29E /* AbundaScanTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbundaScanTests.h; sourceTree = "<group>"; };
 		9D933188166ACFBC0050E29E /* AbundaScanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbundaScanTests.m; sourceTree = "<group>"; };
+		9D933192166AD0600050E29E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		9D933194166AD0690050E29E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9D933196166AD0700050E29E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		9D933198166AD0790050E29E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9D93319A166AD0850050E29E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9D93319C166AD08D0050E29E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9D93357C16B3C14B0050E29E /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		9D93357D16B3C14B0050E29E /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		9D93357E16B3C14B0050E29E /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		9D93357F16B3C14B0050E29E /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		9D93358016B3C14B0050E29E /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		9D93358116B3C14B0050E29E /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		9D93358216B3C14B0050E29E /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		9D93358316B3C14B0050E29E /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		9D93358416B3C14B0050E29E /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		9D93358516B3C14B0050E29E /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		9D93358616B3C14B0050E29E /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		9D93358716B3C14B0050E29E /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		9D93358816B3C14B0050E29E /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		9D93358916B3C14B0050E29E /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		9D93358A16B3C14B0050E29E /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		9D93358B16B3C14B0050E29E /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		9D93358C16B3C14B0050E29E /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		9D93358D16B3C14B0050E29E /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		9D93358E16B3C14B0050E29E /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		9D93358F16B3C14B0050E29E /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		9D93359016B3C14B0050E29E /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		9D93359216B3C14B0050E29E /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
+		9D93359316B3C14B0050E29E /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
+		9D93359416B3C14B0050E29E /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
+		9D93359516B3C14B0050E29E /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		9D93359D16B3C1550050E29E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		9D93359E16B3C1550050E29E /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		9D93359F16B3C1550050E29E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		9D9335A016B3C1550050E29E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		9D9335A116B3C1550050E29E /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		9D93375916B3C1560050E29E /* DAM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAM.h; sourceTree = "<group>"; };
+		9D93375A16B3C1560050E29E /* DAM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAM.m; sourceTree = "<group>"; };
+		9D93375B16B3C1560050E29E /* DAMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMAppDelegate.h; sourceTree = "<group>"; };
+		9D93375C16B3C1560050E29E /* DAMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMAppDelegate.m; sourceTree = "<group>"; };
+		9D93375D16B3C1560050E29E /* DAMViewController-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DAMViewController-5.xib"; sourceTree = "<group>"; };
+		9D93375E16B3C1560050E29E /* DAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMViewController.h; sourceTree = "<group>"; };
+		9D93375F16B3C1560050E29E /* DAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMViewController.m; sourceTree = "<group>"; };
+		9D93376016B3C1560050E29E /* DAMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMViewController.xib; sourceTree = "<group>"; };
+		9D93376116B3C1560050E29E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9D93376216B3C1560050E29E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9D93376416B3C1560050E29E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D93376516B3C1560050E29E /* loadingSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingSpinner.h; sourceTree = "<group>"; };
+		9D93376616B3C1560050E29E /* loadingSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadingSpinner.m; sourceTree = "<group>"; };
+		9D93376716B3C1560050E29E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		9D93376816B3C1560050E29E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D93376916B3C1560050E29E /* ScanButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScanButton.png; sourceTree = "<group>"; };
+		9D93376A16B3C1560050E29E /* ViewBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewBox.png; sourceTree = "<group>"; };
+		9D93376B16B3C1560050E29E /* WhiteBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteBox.png; sourceTree = "<group>"; };
+		9D9338B716B3C38A0050E29E /* AbundaScan-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AbundaScan-Info.plist"; sourceTree = "<group>"; };
+		9D9338B816B3C38A0050E29E /* AbundaScan-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AbundaScan-Prefix.pch"; sourceTree = "<group>"; };
+		9D9338BF16BA42530050E29E /* DAMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMLoginViewController.m; sourceTree = "<group>"; };
+		9D9338C116BA42660050E29E /* DAMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMLoginViewController.h; sourceTree = "<group>"; };
+		9D9338C216BA42750050E29E /* DAMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMLoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +136,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D93319D166AD08D0050E29E /* AVFoundation.framework in Frameworks */,
+				9D93319B166AD0850050E29E /* CoreMedia.framework in Frameworks */,
+				9D933197166AD0700050E29E /* CoreVideo.framework in Frameworks */,
+				9D933195166AD0690050E29E /* QuartzCore.framework in Frameworks */,
+				9D933193166AD0600050E29E /* libiconv.dylib in Frameworks */,
+				9D93315C166ACFBB0050E29E /* CoreGraphics.framework in Frameworks */,
 				9D933158166ACFBB0050E29E /* UIKit.framework in Frameworks */,
 				9D93315A166ACFBB0050E29E /* Foundation.framework in Frameworks */,
-				9D93315C166ACFBB0050E29E /* CoreGraphics.framework in Frameworks */,
+				9D93359616B3C14B0050E29E /* libzbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +164,15 @@
 		9D933148166ACFBB0050E29E = {
 			isa = PBXGroup;
 			children = (
-				9D93315D166ACFBB0050E29E /* AbundaScan */,
+				9D93319C166AD08D0050E29E /* AVFoundation.framework */,
+				9D93319A166AD0850050E29E /* CoreMedia.framework */,
+				9D933198166AD0790050E29E /* CoreAudio.framework */,
+				9D933196166AD0700050E29E /* CoreVideo.framework */,
+				9D933194166AD0690050E29E /* QuartzCore.framework */,
+				9D933192166AD0600050E29E /* libiconv.dylib */,
+				9D93359B16B3C1550050E29E /* AbundaScan */,
 				9D933181166ACFBC0050E29E /* AbundaScanTests */,
+				9D93357516B3C14B0050E29E /* ZBarSDK */,
 				9D933156166ACFBB0050E29E /* Frameworks */,
 				9D933154166ACFBB0050E29E /* Products */,
 			);
@@ -114,33 +198,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9D93315D166ACFBB0050E29E /* AbundaScan */ = {
-			isa = PBXGroup;
-			children = (
-				9D933166166ACFBB0050E29E /* DAMAppDelegate.h */,
-				9D933167166ACFBB0050E29E /* DAMAppDelegate.m */,
-				9D93316F166ACFBB0050E29E /* DAMViewController.h */,
-				9D933170166ACFBB0050E29E /* DAMViewController.m */,
-				9D933172166ACFBB0050E29E /* DAMViewController.xib */,
-				9D93315E166ACFBB0050E29E /* Supporting Files */,
-			);
-			path = AbundaScan;
-			sourceTree = "<group>";
-		};
-		9D93315E166ACFBB0050E29E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9D93315F166ACFBB0050E29E /* AbundaScan-Info.plist */,
-				9D933160166ACFBB0050E29E /* InfoPlist.strings */,
-				9D933163166ACFBB0050E29E /* main.m */,
-				9D933165166ACFBB0050E29E /* AbundaScan-Prefix.pch */,
-				9D933169166ACFBB0050E29E /* Default.png */,
-				9D93316B166ACFBB0050E29E /* Default@2x.png */,
-				9D93316D166ACFBB0050E29E /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		9D933181166ACFBC0050E29E /* AbundaScanTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +215,137 @@
 				9D933184166ACFBC0050E29E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D93357516B3C14B0050E29E /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9D93357616B3C14B0050E29E /* AbundaScan */,
+				9D93357916B3C14B0050E29E /* Headers */,
+				9D93359016B3C14B0050E29E /* libzbar.a */,
+				9D93359116B3C14B0050E29E /* Resources */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		9D93357616B3C14B0050E29E /* AbundaScan */ = {
+			isa = PBXGroup;
+			children = (
+				9D93357716B3C14B0050E29E /* AbundaScan */,
+				9D93357816B3C14B0050E29E /* AbundaScanTests */,
+			);
+			path = AbundaScan;
+			sourceTree = "<group>";
+		};
+		9D93357716B3C14B0050E29E /* AbundaScan */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AbundaScan;
+			sourceTree = "<group>";
+		};
+		9D93357816B3C14B0050E29E /* AbundaScanTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AbundaScanTests;
+			sourceTree = "<group>";
+		};
+		9D93357916B3C14B0050E29E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9D93357A16B3C14B0050E29E /* ZBarSDK */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		9D93357A16B3C14B0050E29E /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9D93357B16B3C14B0050E29E /* zbar */,
+				9D93358516B3C14B0050E29E /* zbar.h */,
+				9D93358616B3C14B0050E29E /* ZBarCameraSimulator.h */,
+				9D93358716B3C14B0050E29E /* ZBarCaptureReader.h */,
+				9D93358816B3C14B0050E29E /* ZBarHelpController.h */,
+				9D93358916B3C14B0050E29E /* ZBarImage.h */,
+				9D93358A16B3C14B0050E29E /* ZBarImageScanner.h */,
+				9D93358B16B3C14B0050E29E /* ZBarReaderController.h */,
+				9D93358C16B3C14B0050E29E /* ZBarReaderView.h */,
+				9D93358D16B3C14B0050E29E /* ZBarReaderViewController.h */,
+				9D93358E16B3C14B0050E29E /* ZBarSDK.h */,
+				9D93358F16B3C14B0050E29E /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		9D93357B16B3C14B0050E29E /* zbar */ = {
+			isa = PBXGroup;
+			children = (
+				9D93357C16B3C14B0050E29E /* Decoder.h */,
+				9D93357D16B3C14B0050E29E /* Exception.h */,
+				9D93357E16B3C14B0050E29E /* Image.h */,
+				9D93357F16B3C14B0050E29E /* ImageScanner.h */,
+				9D93358016B3C14B0050E29E /* Processor.h */,
+				9D93358116B3C14B0050E29E /* Scanner.h */,
+				9D93358216B3C14B0050E29E /* Symbol.h */,
+				9D93358316B3C14B0050E29E /* Video.h */,
+				9D93358416B3C14B0050E29E /* Window.h */,
+			);
+			path = zbar;
+			sourceTree = "<group>";
+		};
+		9D93359116B3C14B0050E29E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D93359216B3C14B0050E29E /* zbar-back.png */,
+				9D93359316B3C14B0050E29E /* zbar-help.html */,
+				9D93359416B3C14B0050E29E /* zbar-helpicons.png */,
+				9D93359516B3C14B0050E29E /* zbar-samples.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9D93359B16B3C1550050E29E /* AbundaScan */ = {
+			isa = PBXGroup;
+			children = (
+				9D93359C16B3C1550050E29E /* Abunda Icons */,
+				9D9338B716B3C38A0050E29E /* AbundaScan-Info.plist */,
+				9D9338B816B3C38A0050E29E /* AbundaScan-Prefix.pch */,
+				9D93375916B3C1560050E29E /* DAM.h */,
+				9D93375A16B3C1560050E29E /* DAM.m */,
+				9D93375B16B3C1560050E29E /* DAMAppDelegate.h */,
+				9D93375C16B3C1560050E29E /* DAMAppDelegate.m */,
+				9D93375D16B3C1560050E29E /* DAMViewController-5.xib */,
+				9D93375E16B3C1560050E29E /* DAMViewController.h */,
+				9D93375F16B3C1560050E29E /* DAMViewController.m */,
+				9D93376016B3C1560050E29E /* DAMViewController.xib */,
+				9D93376116B3C1560050E29E /* Default-568h@2x.png */,
+				9D93376216B3C1560050E29E /* Default@2x.png */,
+				9D93376316B3C1560050E29E /* InfoPlist.strings */,
+				9D9338C116BA42660050E29E /* DAMLoginViewController.h */,
+				9D9338BF16BA42530050E29E /* DAMLoginViewController.m */,
+				9D9338C216BA42750050E29E /* DAMLoginViewController.xib */,
+				9D93376516B3C1560050E29E /* loadingSpinner.h */,
+				9D93376616B3C1560050E29E /* loadingSpinner.m */,
+				9D93376716B3C1560050E29E /* logo.png */,
+				9D93376816B3C1560050E29E /* main.m */,
+				9D93376916B3C1560050E29E /* ScanButton.png */,
+				9D93376A16B3C1560050E29E /* ViewBox.png */,
+				9D93376B16B3C1560050E29E /* WhiteBox.png */,
+			);
+			path = AbundaScan;
+			sourceTree = "<group>";
+		};
+		9D93359C16B3C1550050E29E /* Abunda Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9D93359D16B3C1550050E29E /* Icon-Small.png */,
+				9D93359E16B3C1550050E29E /* Icon-Small@2x.png */,
+				9D93359F16B3C1550050E29E /* Icon.png */,
+				9D9335A016B3C1550050E29E /* Icon@2x.png */,
+				9D9335A116B3C1550050E29E /* iTunesArtwork.png */,
+			);
+			path = "Abunda Icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,11 +420,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D933162166ACFBB0050E29E /* InfoPlist.strings in Resources */,
-				9D93316A166ACFBB0050E29E /* Default.png in Resources */,
-				9D93316C166ACFBB0050E29E /* Default@2x.png in Resources */,
-				9D93316E166ACFBB0050E29E /* Default-568h@2x.png in Resources */,
-				9D933174166ACFBB0050E29E /* DAMViewController.xib in Resources */,
+				9D93359716B3C14B0050E29E /* zbar-back.png in Resources */,
+				9D93359816B3C14B0050E29E /* zbar-help.html in Resources */,
+				9D93359916B3C14B0050E29E /* zbar-helpicons.png in Resources */,
+				9D93359A16B3C14B0050E29E /* zbar-samples.png in Resources */,
+				9D93376C16B3C1560050E29E /* Icon-Small.png in Resources */,
+				9D93376D16B3C1560050E29E /* Icon-Small@2x.png in Resources */,
+				9D93376E16B3C1560050E29E /* Icon.png in Resources */,
+				9D93376F16B3C1560050E29E /* Icon@2x.png in Resources */,
+				9D93377016B3C1570050E29E /* iTunesArtwork.png in Resources */,
+				9D9338AB16B3C1570050E29E /* DAMViewController-5.xib in Resources */,
+				9D9338AD16B3C1570050E29E /* DAMViewController.xib in Resources */,
+				9D9338AE16B3C1570050E29E /* Default-568h@2x.png in Resources */,
+				9D9338AF16B3C1570050E29E /* Default@2x.png in Resources */,
+				9D9338B016B3C1570050E29E /* InfoPlist.strings in Resources */,
+				9D9338B216B3C1570050E29E /* logo.png in Resources */,
+				9D9338B416B3C1570050E29E /* ScanButton.png in Resources */,
+				9D9338B516B3C1570050E29E /* ViewBox.png in Resources */,
+				9D9338B616B3C1570050E29E /* WhiteBox.png in Resources */,
+				9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D933186166ACFBC0050E29E /* InfoPlist.strings in Resources */,
+				9D9338B916B3C38A0050E29E /* AbundaScan-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +474,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D933164166ACFBB0050E29E /* main.m in Sources */,
-				9D933168166ACFBB0050E29E /* DAMAppDelegate.m in Sources */,
-				9D933171166ACFBB0050E29E /* DAMViewController.m in Sources */,
+				9D9338A916B3C1570050E29E /* DAM.m in Sources */,
+				9D9338AA16B3C1570050E29E /* DAMAppDelegate.m in Sources */,
+				9D9338AC16B3C1570050E29E /* DAMViewController.m in Sources */,
+				9D9338B116B3C1570050E29E /* loadingSpinner.m in Sources */,
+				9D9338B316B3C1570050E29E /* main.m in Sources */,
+				9D9338C016BA42540050E29E /* DAMLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,26 +502,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9D933160166ACFBB0050E29E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D933161166ACFBB0050E29E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9D933172166ACFBB0050E29E /* DAMViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D933173166ACFBB0050E29E /* en */,
-			);
-			name = DAMViewController.xib;
-			sourceTree = "<group>";
-		};
 		9D933184166ACFBC0050E29E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9D933185166ACFBC0050E29E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9D93376316B3C1560050E29E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D93376416B3C1560050E29E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -375,10 +573,20 @@
 		9D93318D166ACFBC0050E29E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Mayer (4K99FLQZ48)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AbundaScan/AbundaScan-Prefix.pch";
 				INFOPLIST_FILE = "AbundaScan/AbundaScan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../BarcodeScanner/ZBarSDK\"",
+					"\"$(SRCROOT)/../ugh/ZBarSDK\"",
+					"\"$(SRCROOT)/ZBarSDK\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BCE3F8A1-57EF-43DD-9133-03CE6FA2AE0F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -386,10 +594,22 @@
 		9D93318E166ACFBC0050E29E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Mayer (4K99FLQZ48)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: David Mayer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AbundaScan/AbundaScan-Prefix.pch";
 				INFOPLIST_FILE = "AbundaScan/AbundaScan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../BarcodeScanner/ZBarSDK\"",
+					"\"$(SRCROOT)/../ugh/ZBarSDK\"",
+					"\"$(SRCROOT)/ZBarSDK\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BCE3F8A1-57EF-43DD-9133-03CE6FA2AE0F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "64A2D7FE-6FEE-4B4F-B1B8-58FABC3D733C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

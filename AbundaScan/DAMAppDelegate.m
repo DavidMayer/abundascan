@@ -14,6 +14,7 @@
 @implementation DAMAppDelegate
 
 @synthesize spinner;
+@synthesize navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -34,8 +35,8 @@
         
         if(result.height == 480)
         {
-            //vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
-            vc = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
+            vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
+            //vc = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
         }
         if(result.height == 568)
         {
@@ -43,11 +44,18 @@
         }
     }
     
-    _window.rootViewController = vc;
+    self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.navController.toolbarHidden = YES;
+    _window.rootViewController = self.navController;//vc;
+   // vc.showLoginVC;
+    DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
+    [self.navController pushViewController:loginVC animated:YES];
+    self.navController.navigationBarHidden = YES;
     [_window makeKeyAndVisible];
     
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -34,6 +34,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
+
 - (IBAction)clickMyScanButton:(id)sender;
+-(void)addButtonTapped;
+-(void)settingsButtonTapped;
 
 @end

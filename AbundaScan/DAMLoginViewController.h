@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DAMLoginViewController : UIViewController
+@interface DAMLoginViewController : UIViewController <UITextFieldDelegate>
+@property (strong, nonatomic) NSURLConnection *apiConnection;
+@property (strong, nonatomic) NSMutableData *apiData;
 @property (strong, nonatomic) IBOutlet UITextField *myUserNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *myPasswordTextField;
 - (IBAction)clickMyLoginButton:(id)sender;
+- (IBAction)clickMySkipButton:(id)sender;
 
 @end

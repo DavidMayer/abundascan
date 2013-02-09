@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "loadingSpinner.h"
 #import "DAMAppDelegate.h"
+#import "DAMLoginViewController.h"
 
 @interface DAMViewController ()
 
@@ -64,7 +65,14 @@
     }
     
     originalImageViewFrame = myResultImageView.frame;
-    myNavigationBar.tintColor = UIColorFromRGB(0x005796);
+    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.navController.navigationBarHidden = NO;
+    appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
+    self.title = @"AbundaScan";
+    //myNavigationBar.tintColor = UIColorFromRGB(0x005796);
     noImageLabel.hidden = YES;
     myScanButton.titleLabel.textColor = [UIColor darkGrayColor];
     roundedRectView.layer.backgroundColor = [UIColor whiteColor].CGColor;//UIColorFromRGB(0x005796).CGColor;
@@ -94,6 +102,20 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(void)addButtonTapped{
+    
+    NSLog(@"add");
+
+    
+}
+
+-(void)settingsButtonTapped{
+    
+    NSLog(@"settings");
+    
+    
 }
 
 - (IBAction)clickMyScanButton:(id)sender {
@@ -157,7 +179,7 @@
         myResultUPCLabel.text = productNumber;
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner startWithMessage:@"loading information..."];
+        [appDelegate.spinner startWithMessage:@"searching for pricing..."];
         
         if (self.apiConnection)
         {

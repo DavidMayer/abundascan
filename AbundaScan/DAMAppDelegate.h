@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) loadingSpinner *spinner;
+@property (strong, nonatomic) UINavigationController *navController;
 
 @end

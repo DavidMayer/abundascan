@@ -101,7 +101,6 @@
 }
 
 - (IBAction)clickMySkipButton:(id)sender {
-    
     [[[UIAlertView alloc]initWithTitle:@"Are you sure you don't want to log in?" message:@"Logging in to your AbundaTrade.com account allows you to add the items you scan to your AbundaTrade list for online submission." delegate:self cancelButtonTitle:@"Not this time" otherButtonTitles:@"I'd like to sign in", nil] show];
     
 }

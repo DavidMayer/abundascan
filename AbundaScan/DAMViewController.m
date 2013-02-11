@@ -75,6 +75,12 @@
     roundedRectView.layer.borderWidth = 2;
     roundedRectView.layer.cornerRadius = 10;
     
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasStartedApp"]) {
+        [[[UIAlertView alloc]initWithTitle:@"Add to List" message:@"AbundaScan now allows you to add scanned items to your AbundaTrade.com list! Just click the plus button in the top right corner after you've scanned an item." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"hasStartedApp"];
+    }
+    
+    
 }
 
 - (void)viewDidUnload
@@ -141,7 +147,7 @@
             self.apiConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
         
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasAddedToList"]) {
-            [[[UIAlertView alloc]initWithTitle:@"Auto-Scan" message:@"If you don't like manually adding items to your list, check out our Auto-Scan feature. Each item you scan will automatically be added to your AbundaTrade.com list. You can find it in your settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Settings", nil] show];
+            [[[UIAlertView alloc]initWithTitle:@"Auto-Scan" message:@"If you don't like manually adding items to your list, check out our Auto-Scan feature. Each item you scan will automatically be added to your AbundaTrade.com list. You can find it in your settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Settings", nil] show];
             [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"hasAddedToList"];
         }
             

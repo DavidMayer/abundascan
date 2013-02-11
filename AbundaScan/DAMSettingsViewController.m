@@ -19,6 +19,7 @@
 
 @synthesize myAutoScanSwitch;
 @synthesize shouldAutoScan;
+@synthesize myTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,10 @@
 {
     self.title = @"Settings";
     self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
+    myTableView.backgroundColor = UIColorFromRGB(0xe5e5e5);
+    myTableView.scrollEnabled = NO;
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
     
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) {
         myAutoScanSwitch.on = YES;
@@ -54,8 +59,56 @@
 
 - (void)viewDidUnload {
     [self setMyAutoScanSwitch:nil];
+    [self setMyTableView:nil];
     [super viewDidUnload];
 }
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"Auto-Scan Mode";
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            [myAutoScanSwitch setFrame:CGRectMake(0, 0, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
+            [cell.contentView addSubview: myAutoScanSwitch];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            break;
+            
+        case 1:
+            cell.textLabel.text = @"Sign Out";
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            break;
+        
+        case 1:
+            [self clickMyLogoutButton:nil];
+            
+        default:
+            break;
+    }
+}
+
 - (IBAction)toggleMyAutoScanSwitch:(id)sender {
     shouldAutoScan = !shouldAutoScan;
     [[NSUserDefaults standardUserDefaults] setBool:shouldAutoScan forKey:@"autoscan"];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DAMSettingsViewController : UIViewController
+@interface DAMSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UISwitch *myAutoScanSwitch;
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property BOOL shouldAutoScan;
 
 - (IBAction)toggleMyAutoScanSwitch:(id)sender;

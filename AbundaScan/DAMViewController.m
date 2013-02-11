@@ -105,7 +105,8 @@
     appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
     myAddButton = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     self.navigationItem.rightBarButtonItem = myAddButton;
-    myAddButton.enabled = NO;
+    if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
+        myAddButton.enabled = NO;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
     else
@@ -281,7 +282,9 @@
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[myDict objectForKey:@"imagel"]]];
             UIImage *myImage = [UIImage imageWithData:imageData];
             
-            myAddButton.enabled = YES;
+            if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
+                myAddButton.enabled = NO;
+            else myAddButton.enabled = YES;
             
             [self sizeImageView:myResultImageView AndPlaceImage:myImage];
             

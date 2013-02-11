@@ -223,7 +223,9 @@
         [[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please scan a valid UPC code." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
     else{
-        NSString *urlString = [@"http://abundatrade.com/trade/process/request.php?product_code=" stringByAppendingString:productNumber];
+        NSString *urlString;
+        
+            urlString = [@"http://abundatrade.com/trade/process/request.php?product_code=" stringByAppendingString:productNumber];
         
         myResultUPCLabel.text = productNumber;
         
@@ -284,7 +286,11 @@
             
             if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
                 myAddButton.enabled = NO;
-            else myAddButton.enabled = YES;
+            else {
+                myAddButton.enabled = YES;
+                if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) 
+                    [self addButtonTapped];
+            }
             
             [self sizeImageView:myResultImageView AndPlaceImage:myImage];
             

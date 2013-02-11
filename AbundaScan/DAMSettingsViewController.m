@@ -17,6 +17,9 @@
 
 @implementation DAMSettingsViewController
 
+@synthesize myAutoScanSwitch;
+@synthesize shouldAutoScan;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +31,14 @@
 
 - (void)viewDidLoad
 {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) {
+        myAutoScanSwitch.on = YES;
+        shouldAutoScan = YES;
+    }
+    else {
+        myAutoScanSwitch.on = NO;
+        shouldAutoScan = NO;
+    }
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,10 +54,14 @@
     [super viewDidUnload];
 }
 - (IBAction)toggleMyAutoScanSwitch:(id)sender {
+    shouldAutoScan = !shouldAutoScan;
+    [[NSUserDefaults standardUserDefaults] setBool:shouldAutoScan forKey:@"autoscan"];
+    NSLog(@"Autoscan status = %c", [[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]);
 }
 
 - (IBAction)clickMyLogoutButton:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:FALSE forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] setObject:NO forKey:@"autoscan"];
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc]initWithNibName:@"DAMLoginViewController" bundle:nil];
     [self.navigationController pushViewController:loginVC animated:NO];

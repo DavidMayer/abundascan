@@ -10,6 +10,8 @@
 
 @interface DAMSettingsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UISwitch *myAutoScanSwitch;
+@property BOOL shouldAutoScan;
+
 - (IBAction)toggleMyAutoScanSwitch:(id)sender;
 - (IBAction)clickMyLogoutButton:(id)sender;
 

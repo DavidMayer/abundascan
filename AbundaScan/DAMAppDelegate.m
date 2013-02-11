@@ -22,7 +22,7 @@
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    self.spinner = [[loadingSpinner alloc] initWithFrame:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 100) / 2, 200, 100)];
+    self.spinner = [[loadingSpinner alloc] initWithFrame:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
     [_window addSubview:self.spinner];
     
     //DAMViewController *vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];

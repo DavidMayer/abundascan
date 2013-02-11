@@ -84,7 +84,7 @@
 
         
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.spinner startWithMessage:@"signing in..."];
+    [appDelegate.spinner startWithMessage:@"Signing in..."];
     
     if (self.apiConnection)
     {

@@ -243,7 +243,7 @@
         myResultUPCLabel.text = productNumber;
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner startWithMessage:@"searching for real time prices..."];
+        [appDelegate.spinner startWithMessage:@"Searching for real time prices..."];
         
         if (self.apiConnection)
         {

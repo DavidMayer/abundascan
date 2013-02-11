@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad
 {
+    self.title = @"Settings";
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) {
         myAutoScanSwitch.on = YES;
         shouldAutoScan = YES;

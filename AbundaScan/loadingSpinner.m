@@ -23,10 +23,12 @@
         self.backgroundColor = [UIColor blackColor];
         
         spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((frame.size.width - 50) / 2, 20, 50, 50)];
-        messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, frame.size.width, 20)];
+        messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, frame.size.width, 40)];
         messageLabel.backgroundColor = [UIColor clearColor];
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.textAlignment = UITextAlignmentCenter;
+        messageLabel.numberOfLines = 0;
+
         
         [self addSubview:spinner];
         [self addSubview:messageLabel];

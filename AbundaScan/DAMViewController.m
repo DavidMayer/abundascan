@@ -11,6 +11,7 @@
 #import "loadingSpinner.h"
 #import "DAMAppDelegate.h"
 #import "DAMLoginViewController.h"
+#import "DAMSettingsViewController.h"
 
 @interface DAMViewController ()
 
@@ -33,6 +34,8 @@
 @synthesize roundedRectView;
 @synthesize infoView;
 @synthesize iphone4View;
+@synthesize shouldUpdateView;
+@synthesize myAddButton;
 
 
 - (void)viewDidLoad
@@ -65,14 +68,6 @@
     }
     
     originalImageViewFrame = myResultImageView.frame;
-    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.navController.navigationBarHidden = NO;
-    appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
-    self.title = @"AbundaScan";
-    //myNavigationBar.tintColor = UIColorFromRGB(0x005796);
     noImageLabel.hidden = YES;
     myScanButton.titleLabel.textColor = [UIColor darkGrayColor];
     roundedRectView.layer.backgroundColor = [UIColor whiteColor].CGColor;//UIColorFromRGB(0x005796).CGColor;
@@ -104,18 +99,70 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.navController.navigationBarHidden = NO;
+    appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
+    myAddButton = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+    self.navigationItem.rightBarButtonItem = myAddButton;
+    myAddButton.enabled = NO;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
+    else
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
+    self.title = @"AbundaScan";
+}
+
 -(void)addButtonTapped{
     
     NSLog(@"add");
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){
+        shouldUpdateView = NO;
+            NSString *urlString = [[[@"http://abundatrade.com/trade/process/request.php?action=lookup_item&product_code=" stringByAppendingString:myResultUPCLabel.text] stringByAppendingString:@"&product_qty=1&mobile_scan=true&sync_key="] stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
+        
+        NSLog(@"%@", urlString);
+            
+            DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.spinner startWithMessage:@"Adding to your AbundaTrade.com list..."];
+            
+            if (self.apiConnection)
+            {
+                [self.apiConnection cancel];
+            }
+            
+            self.apiData = [NSMutableData dataWithCapacity:1000];
+            
+            NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+            self.apiConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+        }
+    else{
+        [[[UIAlertView alloc]initWithTitle:@"Login Required" message:@"To add to your list, you must be logged in to your AbundaTrade.com account. Visit AbundaTrade.com to register if you don't have one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 
     
 }
 
 -(void)settingsButtonTapped{
     
-    NSLog(@"settings");
+    DAMSettingsViewController *settingsVC = [[DAMSettingsViewController alloc]initWithNibName:@"DAMSettingsViewController" bundle:nil];
+    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Back"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:nil
+                                   action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    [appDelegate.navController pushViewController:settingsVC animated:YES];
     
     
+}
+
+-(void)loginButtonTapped{
+    
+    DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
+    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.navController pushViewController:loginVC animated:NO];
+    appDelegate.navController.navigationBarHidden = YES;
 }
 
 - (IBAction)clickMyScanButton:(id)sender {
@@ -138,6 +185,7 @@
                             animated: YES];
     roundedRectView.layer.backgroundColor = UIColorFromRGB(0x005796).CGColor;
     infoView.hidden = YES;
+    myAddButton.enabled = NO;
     
     // [reader release];
     
@@ -158,7 +206,7 @@
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
     [reader dismissModalViewControllerAnimated: YES];
     
-    // EXAMPLE: do something useful with the barcode data
+    shouldUpdateView = YES;
     myResultTextView.text = symbol.data;
     [self getProductFromServerWithNumber:symbol.data];
     
@@ -179,7 +227,7 @@
         myResultUPCLabel.text = productNumber;
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner startWithMessage:@"searching for pricing..."];
+        [appDelegate.spinner startWithMessage:@"searching for real time prices..."];
         
         if (self.apiConnection)
         {
@@ -223,7 +271,7 @@
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.spinner stop];
         
-        if ([apiData length])
+        if ([apiData length] && shouldUpdateView)
         {
             NSString *stringDataFromServer = [[NSString alloc] initWithData:apiData encoding:NSUTF8StringEncoding];
             NSLog(@"data from server: %@", stringDataFromServer);
@@ -232,6 +280,8 @@
             myResultPriceLabel.text = [@"$ " stringByAppendingString:(NSString *) [myDict objectForKey:@"price"]];
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[myDict objectForKey:@"imagel"]]];
             UIImage *myImage = [UIImage imageWithData:imageData];
+            
+            myAddButton.enabled = YES;
             
             [self sizeImageView:myResultImageView AndPlaceImage:myImage];
             

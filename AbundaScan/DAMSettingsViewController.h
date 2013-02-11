@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DAMSettingsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UISwitch *myAutoScanSwitch;
+- (IBAction)toggleMyAutoScanSwitch:(id)sender;
+- (IBAction)clickMyLogoutButton:(id)sender;
 
 @end

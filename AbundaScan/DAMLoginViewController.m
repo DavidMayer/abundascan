@@ -108,7 +108,7 @@
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"Are you sure you don't want to log in?"]) {
         [[NSUserDefaults standardUserDefaults] setObject:false forKey:@"token"];
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.navController popViewControllerAnimated:NO];
+        [appDelegate.navController popToRootViewControllerAnimated:NO];
     }
 }
 
@@ -172,7 +172,7 @@
                 NSLog(@"Token = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]);
                 
                 DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-                [appDelegate.navController popViewControllerAnimated:NO];
+                [appDelegate.navController popToRootViewControllerAnimated:NO];
             }
             /*myResultPriceLabel.text = [@"$ " stringByAppendingString:(NSString *) [myDict objectForKey:@"price"]];
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[myDict objectForKey:@"imagel"]]];

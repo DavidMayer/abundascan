@@ -47,6 +47,8 @@
 		9D9338B916B3C38A0050E29E /* AbundaScan-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9338B716B3C38A0050E29E /* AbundaScan-Info.plist */; };
 		9D9338C016BA42540050E29E /* DAMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9338BF16BA42530050E29E /* DAMLoginViewController.m */; };
 		9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9338C216BA42750050E29E /* DAMLoginViewController.xib */; };
+		9DB796D816C70A43009DD48D /* DAMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB796D616C70A42009DD48D /* DAMSettingsViewController.m */; };
+		9DB796D916C70A43009DD48D /* DAMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,9 @@
 		9D9338BF16BA42530050E29E /* DAMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMLoginViewController.m; sourceTree = "<group>"; };
 		9D9338C116BA42660050E29E /* DAMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMLoginViewController.h; sourceTree = "<group>"; };
 		9D9338C216BA42750050E29E /* DAMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMLoginViewController.xib; sourceTree = "<group>"; };
+		9DB796D516C70A42009DD48D /* DAMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMSettingsViewController.h; sourceTree = "<group>"; };
+		9DB796D616C70A42009DD48D /* DAMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMSettingsViewController.m; sourceTree = "<group>"; };
+		9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMSettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +330,9 @@
 				9D9338C116BA42660050E29E /* DAMLoginViewController.h */,
 				9D9338BF16BA42530050E29E /* DAMLoginViewController.m */,
 				9D9338C216BA42750050E29E /* DAMLoginViewController.xib */,
+				9DB796D516C70A42009DD48D /* DAMSettingsViewController.h */,
+				9DB796D616C70A42009DD48D /* DAMSettingsViewController.m */,
+				9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */,
 				9D93376516B3C1560050E29E /* loadingSpinner.h */,
 				9D93376616B3C1560050E29E /* loadingSpinner.m */,
 				9D93376716B3C1560050E29E /* logo.png */,
@@ -439,6 +447,7 @@
 				9D9338B516B3C1570050E29E /* ViewBox.png in Resources */,
 				9D9338B616B3C1570050E29E /* WhiteBox.png in Resources */,
 				9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */,
+				9DB796D916C70A43009DD48D /* DAMSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +489,7 @@
 				9D9338B116B3C1570050E29E /* loadingSpinner.m in Sources */,
 				9D9338B316B3C1570050E29E /* main.m in Sources */,
 				9D9338C016BA42540050E29E /* DAMLoginViewController.m in Sources */,
+				9DB796D816C70A43009DD48D /* DAMSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +677,7 @@
 				9D93318E166ACFBC0050E29E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D93318F166ACFBC0050E29E /* Build configuration list for PBXNativeTarget "AbundaScanTests" */ = {
 			isa = XCConfigurationList;
@@ -675,6 +686,7 @@
 				9D933191166ACFBC0050E29E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

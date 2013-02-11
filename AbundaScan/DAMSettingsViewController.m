@@ -7,6 +7,9 @@
 //
 
 #import "DAMSettingsViewController.h"
+#import "DAMAppDelegate.h"
+#import "DAMLoginViewController.h"
+#import "DAMViewController.h"
 
 @interface DAMSettingsViewController ()
 
@@ -35,4 +38,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setMyAutoScanSwitch:nil];
+    [super viewDidUnload];
+}
+- (IBAction)toggleMyAutoScanSwitch:(id)sender {
+}
+
+- (IBAction)clickMyLogoutButton:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:FALSE forKey:@"token"];
+    DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    DAMLoginViewController *loginVC = [[DAMLoginViewController alloc]initWithNibName:@"DAMLoginViewController" bundle:nil];
+    [self.navigationController pushViewController:loginVC animated:NO];
+    appDelegate.navController.navigationBarHidden = YES;
+   // [self.navigationController popToRootViewControllerAnimated:NO];
+    
+}
 @end

@@ -60,7 +60,7 @@
         {
             // iPhone 5
             //iphone4View.hidden = YES;
-            roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 62, 292, 244)];
+            roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 62 - 44, 292, 244)];
             self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
             [self.view addSubview:roundedRectView];
             [self.view sendSubviewToBack:roundedRectView];
@@ -103,7 +103,11 @@
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController.navigationBarHidden = NO;
     appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
-    myAddButton = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+    //myAddButton = [[UIButton buttonWithType:UIButtonTypeCustom]initWithFrame:CGRectMake(0, 0, 20, 20)] ;
+    
+   myAddButton = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+
+    //myAddButton.image = [UIImage imageNamed:@"plus.png"];
     self.navigationItem.rightBarButtonItem = myAddButton;
     if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
         myAddButton.enabled = NO;

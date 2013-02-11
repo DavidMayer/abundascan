@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     self.title = @"Settings";
+    self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
+    
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) {
         myAutoScanSwitch.on = YES;
         shouldAutoScan = YES;

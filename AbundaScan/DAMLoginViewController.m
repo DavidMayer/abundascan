@@ -34,7 +34,10 @@
 {
     myPasswordTextField.delegate = self;
     myUserNameTextField.delegate = self;
+    myUserNameTextField.returnKeyType = UIReturnKeyNext;
+    myPasswordTextField.returnKeyType = UIReturnKeyDone;
     myPasswordTextField.secureTextEntry = YES;
+    self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

@@ -135,6 +135,12 @@
             
             NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
             self.apiConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+        
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasAddedToList"]) {
+            [[[UIAlertView alloc]initWithTitle:@"Auto-Scan" message:@"If you don't like manually adding items to your list, check out our Auto-Scan feature. Each item you scan will automatically be added to your AbundaTrade.com list. You can find it in your settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Settings", nil] show];
+            [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"hasAddedToList"];
+        }
+            
         }
     else{
         [[[UIAlertView alloc]initWithTitle:@"Login Required" message:@"To add to your list, you must be logged in to your AbundaTrade.com account. Visit AbundaTrade.com to register if you don't have one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
@@ -191,6 +197,13 @@
     // [reader release];
     
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1 && [alertView.title isEqualToString:@"Auto-Scan"])
+        [self settingsButtonTapped];
+}
+
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {

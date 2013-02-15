@@ -49,8 +49,11 @@
     _window.rootViewController = self.navController;//vc;
    // vc.showLoginVC;
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
-    [self.navController pushViewController:loginVC animated:YES];
-    self.navController.navigationBarHidden = YES;
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"token"]) {
+        [self.navController pushViewController:loginVC animated:YES];
+        self.navController.navigationBarHidden = YES;
+    }
     [_window makeKeyAndVisible];
     
     return YES;

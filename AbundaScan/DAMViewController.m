@@ -36,6 +36,7 @@
 @synthesize iphone4View;
 @synthesize shouldUpdateView;
 @synthesize myAddButton;
+@synthesize myLeftButton;
 
 
 - (void)viewDidLoad
@@ -109,18 +110,49 @@
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController.navigationBarHidden = NO;
     appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
-    //myAddButton = [[UIButton buttonWithType:UIButtonTypeCustom]initWithFrame:CGRectMake(0, 0, 20, 20)] ;
     
-   myAddButton = [[UIBarButtonItem alloc]initWithTitle:@"add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
-
-    //myAddButton.image = [UIImage imageNamed:@"plus.png"];
+   
+   /* UIView *myRightButtonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIButton *myRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    myRightButton.frame = CGRectMake(0, 0, 40, 40);
+    [myRightButton addTarget:self action:@selector(addButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    UIImageView *myRightButtonImageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 30, 30)];
+    myRightButtonImageView.image = [UIImage imageNamed:@"plus.png"];
+    [myRightButton addSubview:myRightButtonImageView];
+    [myRightButtonView addSubview:myRightButton];
+    myAddButton = [[UIBarButtonItem alloc] initWithCustomView:myRightButtonView];
+    [myAddButton setStyle:UIBarButtonSystemItemAdd];
+    self.navigationItem.rightBarButtonItem = myAddButton;*/
+    
+    
+    
+    UIImage *plus = [UIImage imageNamed:@"plus.png"];
+    NSLog(@"plus height: %f", plus.size.height);
+    NSLog(@"plus width: %f", plus.size.width);
+    myAddButton = [[UIBarButtonItem alloc]initWithImage:plus/*[UIImage imageNamed:@"plus.png"]*/ style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+    NSLog(@"plus height: %f", plus.size.height);
+    NSLog(@"plus width: %f", plus.size.width);
+    //myAddButton.image = [[UIImage imageNamed:@"plus.png"]stretchableImageWithLeftCapWidth:10 topCapHeight:10] ;
     self.navigationItem.rightBarButtonItem = myAddButton;
     if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
         myAddButton.enabled = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
-    else
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
+    
+    myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){
+        UIImage *gear = [UIImage imageNamed:@"gear.png"];
+        
+        NSLog(@"gear height: %f", gear.size.height);
+        NSLog(@"gear width: %f", gear.size.width);
+        
+        myLeftButton = [[UIBarButtonItem alloc]initWithImage:gear/*[UIImage imageNamed:@"gear.png"]*/ style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
+        
+        NSLog(@"gear height: %f", gear.size.height);
+        NSLog(@"gear width: %f", gear.size.width);
+        //myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
+    }
+    self.navigationItem.leftBarButtonItem = myLeftButton;
+    
+    self.navigationItem.leftBarButtonItem = myLeftButton;
     self.title = @"AbundaScan";
 }
 

@@ -81,7 +81,7 @@
     NSString *md5 = [self stringToMD5:password];
     
     
-    NSString *urlString = [[[[@"http://abundatrade.com/trade/process/user/login/?user=" stringByAppendingString:username] stringByAppendingString: @"&password="] stringByAppendingString:md5] stringByAppendingString:@"&callback=j&mobile_scan=true"];
+    NSString *urlString = [[[[@"http://abundatrade.com/trade/process/user/login/?user=" stringByAppendingString:username] stringByAppendingString: @"&password="] stringByAppendingString:md5] stringByAppendingString:@"&mobile_scan=true"];
     
     NSLog(@"%@", urlString);
 
@@ -161,15 +161,15 @@
             NSLog(@"data from server: %@", stringDataFromServer);
 
             NSDictionary *myDict = [NSJSONSerialization JSONObjectWithData:apiData options:NSJSONReadingMutableLeaves error:nil];
-            NSString *isError = [myDict objectForKey:@"error"];
+            BOOL isError = (bool)[myDict objectForKey:@"error"];
             NSLog(@"myDict = %@", myDict);
-            NSLog(@"isError = %@", isError);
+            NSLog(@"isError = %c", isError);
             
-            //if ([isError isEqualToString:@"false"] ){
-            if (!isError) {
+            if ([myDict objectForKey:@"key"]){
+            //if (!isError) {
                 NSString *token = [myDict objectForKey:@"key"];
-                //[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
-                [[NSUserDefaults standardUserDefaults] setObject:@"ea823aa9aa86ac7fdcdd204a40e5f153" forKey:@"token"];
+                [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+                //[[NSUserDefaults standardUserDefaults] setObject:@"ea823aa9aa86ac7fdcdd204a40e5f153" forKey:@"token"];
                 
                 NSLog(@"Token = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]);
                 
@@ -182,7 +182,7 @@
             
             [self sizeImageView:myResultImageView AndPlaceImage:myImage];*/
             
-            else if ([isError isEqualToString:@"false"] ){
+            else if (isError == YES){
             [[[UIAlertView alloc]initWithTitle:@"Unable to log in" message:@"Your username and password combination was incorrect. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
             }
             

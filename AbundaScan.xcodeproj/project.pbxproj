@@ -50,6 +50,9 @@
 		9DB796D816C70A43009DD48D /* DAMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB796D616C70A42009DD48D /* DAMSettingsViewController.m */; };
 		9DB796D916C70A43009DD48D /* DAMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */; };
 		9DB796DE16C8D439009DD48D /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DB796DD16C8D439009DD48D /* plus.png */; };
+		9DDF0ECC16CE2E8400D6F8FC /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECB16CE2E8400D6F8FC /* gear.png */; };
+		9DDF0ECF16CE312B00D6F8FC /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */; };
+		9DDF0ED016CE312B00D6F8FC /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,9 @@
 		9DB796D616C70A42009DD48D /* DAMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMSettingsViewController.m; sourceTree = "<group>"; };
 		9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMSettingsViewController.xib; sourceTree = "<group>"; };
 		9DB796DD16C8D439009DD48D /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		9DDF0ECB16CE2E8400D6F8FC /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,7 +345,10 @@
 				9D93376616B3C1560050E29E /* loadingSpinner.m */,
 				9D93376716B3C1560050E29E /* logo.png */,
 				9D93376816B3C1560050E29E /* main.m */,
+				9DDF0ECB16CE2E8400D6F8FC /* gear.png */,
 				9DB796DD16C8D439009DD48D /* plus.png */,
+				9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */,
+				9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */,
 				9D93376916B3C1560050E29E /* ScanButton.png */,
 				9D93376A16B3C1560050E29E /* ViewBox.png */,
 				9D93376B16B3C1560050E29E /* WhiteBox.png */,
@@ -452,6 +461,9 @@
 				9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */,
 				9DB796D916C70A43009DD48D /* DAMSettingsViewController.xib in Resources */,
 				9DB796DE16C8D439009DD48D /* plus.png in Resources */,
+				9DDF0ECC16CE2E8400D6F8FC /* gear.png in Resources */,
+				9DDF0ECF16CE312B00D6F8FC /* plus@2x.png in Resources */,
+				9DDF0ED016CE312B00D6F8FC /* gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

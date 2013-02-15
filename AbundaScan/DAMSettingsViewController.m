@@ -71,6 +71,10 @@
     return 2;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
@@ -78,7 +82,7 @@
         case 0:
             cell.textLabel.text = @"Auto-Scan Mode";
             cell.textLabel.textColor = [UIColor darkGrayColor];
-            [myAutoScanSwitch setFrame:CGRectMake(0, 0, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
+            [myAutoScanSwitch setFrame:CGRectMake(220, 16, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
             [cell.contentView addSubview: myAutoScanSwitch];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;

@@ -37,13 +37,12 @@
 @synthesize shouldUpdateView;
 @synthesize myAddButton;
 @synthesize myLeftButton;
+@synthesize symbol;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -75,6 +74,7 @@
     roundedRectView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     roundedRectView.layer.borderWidth = 2;
     roundedRectView.layer.cornerRadius = 10;
+    
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasStartedApp"]) {
         [[[UIAlertView alloc]initWithTitle:@"Add to List" message:@"AbundaScan now allows you to add scanned items to your AbundaTrade.com list! Just click the plus button in the top right corner after you've scanned an item." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
@@ -230,6 +230,10 @@
                    config: ZBAR_CFG_ENABLE
                        to: 0];
     
+    [scanner setSymbology: ZBAR_QRCODE
+                   config:ZBAR_CFG_ENABLE
+                       to:0];
+    
     // present and release the controller
     [self presentModalViewController: reader
                             animated: YES];
@@ -245,6 +249,9 @@
     
     if (buttonIndex == 1 && [alertView.title isEqualToString:@"Auto-Scan"])
         [self settingsButtonTapped];
+    else if (buttonIndex == 1 && [alertView.title isEqualToString:@"Loading Error"]){
+        [self getProductFromServerWithNumber:symbol.data];
+    }
 }
 
 - (void) imagePickerController: (UIImagePickerController*) reader
@@ -253,7 +260,7 @@
     // ADD: get the decode results
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
-    ZBarSymbol *symbol = nil;
+    //ZBarSymbol *symbol = nil;
     for(symbol in results)
         // EXAMPLE: just grab the first barcode
         break;
@@ -265,7 +272,7 @@
     
     shouldUpdateView = YES;
     myResultTextView.text = symbol.data;
-    [self getProductFromServerWithNumber:symbol.data];
+    [self getProductFromServerWithNumber: symbol.data];
     
 }
 
@@ -276,7 +283,7 @@
     NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
     NSNumber *myNumericChecker = [format numberFromString:productNumber];
     if (myNumericChecker == nil) {
-        [[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"Please scan a valid UPC code." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Invalid UPC" message:@"Please scan a valid UPC code." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
     else{
         NSString *urlString;
@@ -319,7 +326,7 @@
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.spinner stop];
-        [[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"We encountered a loading error. Please make sure you have service, then try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Loading Error" message:@"We encountered a loading error. Please make sure you have service, then try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: @"Try Again?", nil] show];
     }
 }
 

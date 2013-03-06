@@ -85,7 +85,7 @@
         case 0:
             cell.textLabel.text = @"Auto-Scan Mode";
             cell.textLabel.textColor = [UIColor darkGrayColor];
-            [myAutoScanSwitch setFrame:CGRectMake(220, 16, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
+            [myAutoScanSwitch setFrame:CGRectMake(215, 16, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
             [cell.contentView addSubview: myAutoScanSwitch];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;

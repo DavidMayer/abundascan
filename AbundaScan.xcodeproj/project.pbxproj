@@ -53,6 +53,8 @@
 		9DDF0ECC16CE2E8400D6F8FC /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECB16CE2E8400D6F8FC /* gear.png */; };
 		9DDF0ECF16CE312B00D6F8FC /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */; };
 		9DDF0ED016CE312B00D6F8FC /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */; };
+		9DDF0ED216CF420400D6F8FC /* AbundaScanStacked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ED116CF420300D6F8FC /* AbundaScanStacked@2x.png */; };
+		9DDF0ED416CF446200D6F8FC /* SignInButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDF0ED316CF446200D6F8FC /* SignInButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,8 @@
 		9DDF0ECB16CE2E8400D6F8FC /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		9DDF0ED116CF420300D6F8FC /* AbundaScanStacked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AbundaScanStacked@2x.png"; sourceTree = "<group>"; };
+		9DDF0ED316CF446200D6F8FC /* SignInButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SignInButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +347,7 @@
 				9DB796D716C70A43009DD48D /* DAMSettingsViewController.xib */,
 				9D93376516B3C1560050E29E /* loadingSpinner.h */,
 				9D93376616B3C1560050E29E /* loadingSpinner.m */,
+				9DDF0ED116CF420300D6F8FC /* AbundaScanStacked@2x.png */,
 				9D93376716B3C1560050E29E /* logo.png */,
 				9D93376816B3C1560050E29E /* main.m */,
 				9DDF0ECB16CE2E8400D6F8FC /* gear.png */,
@@ -350,6 +355,7 @@
 				9DDF0ECD16CE312B00D6F8FC /* plus@2x.png */,
 				9DDF0ECE16CE312B00D6F8FC /* gear@2x.png */,
 				9D93376916B3C1560050E29E /* ScanButton.png */,
+				9DDF0ED316CF446200D6F8FC /* SignInButton@2x.png */,
 				9D93376A16B3C1560050E29E /* ViewBox.png */,
 				9D93376B16B3C1560050E29E /* WhiteBox.png */,
 			);
@@ -464,6 +470,8 @@
 				9DDF0ECC16CE2E8400D6F8FC /* gear.png in Resources */,
 				9DDF0ECF16CE312B00D6F8FC /* plus@2x.png in Resources */,
 				9DDF0ED016CE312B00D6F8FC /* gear@2x.png in Resources */,
+				9DDF0ED216CF420400D6F8FC /* AbundaScanStacked@2x.png in Resources */,
+				9DDF0ED416CF446200D6F8FC /* SignInButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

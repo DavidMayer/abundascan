@@ -20,6 +20,11 @@
 @synthesize myUserNameTextField;
 @synthesize apiConnection;
 @synthesize apiData;
+@synthesize myTableView;
+@synthesize keyboardIsUp;
+@synthesize currentTextField;
+@synthesize gestureRecognizer;
+@synthesize spinnerIsDown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,10 +39,15 @@
 {
     myPasswordTextField.delegate = self;
     myUserNameTextField.delegate = self;
+    myTableView.dataSource = self;
+    myTableView.delegate = self;
+    myTableView.scrollEnabled = NO;
     myUserNameTextField.returnKeyType = UIReturnKeyNext;
     myPasswordTextField.returnKeyType = UIReturnKeyDone;
     myPasswordTextField.secureTextEntry = YES;
     self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
+    spinnerIsDown = YES;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -48,13 +58,139 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - TableView Delegate Methods
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.accessoryView = myUserNameTextField;
+            
+            //[cell addSubview:myUserNameTextField];
+            //myUserNameTextField.frame = CGRectMake(0, 0, myUserNameTextField.frame.size.width, myUserNameTextField.frame.size.height);
+           // NSLog(@"myUserNameTextField x = %d y = %d", myUserNameTextField.frame.origin.x, myUserNameTextField.frame.origin.y);
+           // NSLog(@"cell x = %d, y = %d", cell.frame.origin.x, cell.frame.origin.y);
+            break;
+            
+        case 1:
+            cell.accessoryView = myPasswordTextField;
+            //[cell addSubview:myPasswordTextField];
+            //myPasswordTextField.frame = CGRectMake(0, 0, myPasswordTextField.frame.size.width, myPasswordTextField.frame.size.width);
+            //NSLog(@"myPassword x = %d y = %d", myPasswordTextField.frame.origin.x, myPasswordTextField.frame.origin.y);
+            //NSLog(@"cell x = %d, y = %d", cell.frame.origin.x, cell.frame.origin.y);
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            currentTextField = myUserNameTextField;
+            break;
+            
+        case 1:
+            currentTextField = myPasswordTextField;
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)animateView{
+    if (keyboardIsUp) {
+        
+        [UIView beginAnimations:@"move down" context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        self.view.transform = CGAffineTransformMakeTranslation(0,0);
+        
+        [UIView commitAnimations];
+        
+        
+        //self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }
+    else{
+        
+        [UIView beginAnimations:@"move up" context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        self.view.transform = CGAffineTransformMakeTranslation(0,-200);
+        
+        [UIView commitAnimations];
+        
+        //self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }
+    
+    keyboardIsUp = !keyboardIsUp;
+}
+
+- (IBAction)tapOccured:(id)sender {
+    
+    NSLog(@"tapping?");
+    
+    CGPoint tapLocation = [sender locationInView:self.view];
+    
+    UIView *tappedView = [self.view hitTest:tapLocation withEvent:nil];
+    if ([tappedView isKindOfClass:[UIButton class]]) {
+        UIButton *button = [[UIButton alloc]init];
+        button = (UIButton *)tappedView;
+        if ([button.titleLabel.text isEqualToString:@"Sign In"]){
+            [currentTextField resignFirstResponder];
+            [self clickMyLoginButton:sender];
+        }
+        else if ([button.titleLabel.text isEqualToString:@"No Thanks"]){
+            [currentTextField resignFirstResponder];
+            [self clickMySkipButton:sender];
+        }
+        else{
+            currentTextField.text = @"";
+        }
+    }
+    
+    else{
+        if (keyboardIsUp) {
+        [self animateView];
+        [currentTextField performSelector:@selector(resignFirstResponder) withObject:nil afterDelay:0.3];
+        gestureRecognizer.enabled = NO;
+        }
+    }
+}
+
 
 #pragma mark - UITextFieldDelegate
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-    NSLog(@"edit");
-    //currentTextField = textField;
-    //gesutreRecognizer.enabled = YES;
+    
+    if (self.view.frame.origin.y == 0) {
+
+    [self performSelector:@selector(animateView) withObject:nil afterDelay:0.3];
+    }
+
+    currentTextField = textField;
+    gestureRecognizer.enabled = YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -65,12 +201,24 @@
     }
     else
     {
-        [myPasswordTextField resignFirstResponder];
+        //[myPasswordTextField resignFirstResponder];
+        [self animateView];
+        [myPasswordTextField performSelector:@selector(resignFirstResponder) withObject:nil afterDelay:0.3];
+        
     }
     
+    gestureRecognizer.enabled = NO;
+    
     NSLog(@"return");
-    return YES;
+    return YES;  
 }
+
+/*-(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    //if the spinner is up, the keyboard will lose focus because user interaction is disabled. This way, it will not be dismissable during spinner view
+    
+    return spinnerIsDown;
+}*/
 
 
 
@@ -87,7 +235,21 @@
 
         
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.spinner startWithMessage:@"Signing in..."];
+    spinnerIsDown = NO;
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    
+    [self animateView];
+    [currentTextField resignFirstResponder];
+  
+    if (keyboardIsUp){
+    [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height) / 2, 200, 120)];
+    }
+    
+    else{
+        [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
+    }
+    
     
     if (self.apiConnection)
     {
@@ -143,6 +305,7 @@
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.spinner stop];
+        spinnerIsDown = YES;
         [[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"We encountered a loading error. Please make sure you have service, then try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
@@ -154,6 +317,7 @@
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate.spinner stop];
+        spinnerIsDown = YES;
         
         if ([apiData length])
         {
@@ -190,4 +354,9 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setMyTableView:nil];
+    [self setGestureRecognizer:nil];
+    [super viewDidUnload];
+}
 @end

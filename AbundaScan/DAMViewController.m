@@ -166,8 +166,9 @@
         NSLog(@"%@", urlString);
             
             DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.spinner startWithMessage:@"Adding to your AbundaTrade.com list..."];
-            
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        [appDelegate.spinner startWithMessage:@"Adding to your AbundaTrade.com list..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
+        
             if (self.apiConnection)
             {
                 [self.apiConnection cancel];
@@ -285,7 +286,8 @@
         myResultUPCLabel.text = productNumber;
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner startWithMessage:@"Searching for real time prices..."];
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        [appDelegate.spinner startWithMessage:@"Searching for real time prices..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
         
         if (self.apiConnection)
         {

@@ -13,6 +13,6 @@
 @property UIActivityIndicatorView *spinner;
 @property UILabel *messageLabel;
 
--(void)startWithMessage:(NSString *)message;
+-(void)startWithMessage:(NSString *)message Dimensions:(CGRect)frame;
 -(void)stop;
 @end

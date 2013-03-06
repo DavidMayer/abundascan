@@ -17,6 +17,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    NSLog(@"1 %@", NSStringFromCGRect(frame));
     if (self = [super initWithFrame:frame])
     {
         self.layer.cornerRadius = 10;
@@ -28,6 +29,8 @@
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.textAlignment = UITextAlignmentCenter;
         messageLabel.numberOfLines = 0;
+        
+        NSLog(@"2");
 
         
         [self addSubview:spinner];
@@ -36,6 +39,7 @@
     
     return self;
 }
+
 
 
 - (void)stop
@@ -61,7 +65,7 @@
     appDelegate.window.userInteractionEnabled = YES;
 }
 
-- (void)startWithMessage:(NSString *)message
+- (void)startWithMessage:(NSString *)message Dimensions:(CGRect )frame
 {
     messageLabel.text = message;
     [spinner startAnimating];
@@ -79,6 +83,8 @@
      {
          self.alpha = 1.0f;
      }];
+    
+    [self initWithFrame:frame];
     
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.window.userInteractionEnabled = NO;

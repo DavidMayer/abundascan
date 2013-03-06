@@ -84,7 +84,6 @@
          self.alpha = 1.0f;
      }];
     
-    [self initWithFrame:frame];
     
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.window.userInteractionEnabled = NO;

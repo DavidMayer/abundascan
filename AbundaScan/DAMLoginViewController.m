@@ -239,10 +239,10 @@
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
     
-    [self animateView];
-    [currentTextField resignFirstResponder];
   
     if (keyboardIsUp){
+        [self animateView];
+        [currentTextField resignFirstResponder];
     [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height) / 2, 200, 120)];
     }
     

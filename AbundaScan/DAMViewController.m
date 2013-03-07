@@ -77,7 +77,7 @@
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasStartedApp"]) {
-        [[[UIAlertView alloc]initWithTitle:@"Add to List" message:@"AbundaScan now allows you to add scanned items to your AbundaTrade.com list! Just click the plus button in the top right corner after you've scanned an item." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Instructions" message:@"You can scan any CD, DVD, Video Game, or Book and get a real time offer from AbundaTrade.com.  Simply hold your phone about 4 inches from any barcode and wait a couple seconds for the value to be captured.  If you like the value and want to add it to your list to submit to AbundaTrade.com simply hit the + button and it will populate your list for sale on your account at AbundaTrade.com.  Please contact us at Trade@AbundaTrade.com if you have any further questions. You can review these instructions any time you want from your settings."/*@"AbundaScan now allows you to add scanned items to your AbundaTrade.com list! Just click the plus button in the top right corner after you've scanned an item." */delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"hasStartedApp"];
     }
     
@@ -137,8 +137,8 @@
     if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
         myAddButton.enabled = NO;
     
-    myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){
+  /*  myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){*/
         UIImage *gear = [UIImage imageNamed:@"gear.png"];
         
         NSLog(@"gear height: %f", gear.size.height);
@@ -149,7 +149,7 @@
         NSLog(@"gear height: %f", gear.size.height);
         NSLog(@"gear width: %f", gear.size.width);
         //myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
-    }
+    //}
     self.navigationItem.leftBarButtonItem = myLeftButton;
     
     self.navigationItem.leftBarButtonItem = myLeftButton;

@@ -71,6 +71,9 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])
+        return 3;
+    else
     return 2;
 }
 
@@ -81,38 +84,95 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"Auto-Scan Mode";
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            [myAutoScanSwitch setFrame:CGRectMake(215, 16, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
-            [cell.contentView addSubview: myAutoScanSwitch];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            break;
-            
-        case 1:
-            cell.textLabel.text = @"Sign Out";
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
-            break;
-            
-        default:
-            break;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]) {
+        
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"Auto-Scan Mode";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                [myAutoScanSwitch setFrame:CGRectMake(215, 16, myAutoScanSwitch.frame.size.width, myAutoScanSwitch.frame.size.height)];
+                [cell.contentView addSubview: myAutoScanSwitch];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                break;
+                
+            case 1:
+                cell.textLabel.text = @"Instructions";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                break;
+                
+            case 2:
+                cell.textLabel.text = @"Sign Out";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else{
+        
+        switch (indexPath.row) {
+                
+            case 0:
+                cell.textLabel.text = @"Instructions";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                myAutoScanSwitch.hidden = YES;
+                break;
+                
+            case 1:
+                cell.textLabel.text = @"Sign In";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                break;
+                
+        }
     }
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0:
-            break;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]) {
+        switch (indexPath.row) {
+            case 0:
+                break;
+                
+            case 1:
+                [tableView deselectRowAtIndexPath:indexPath animated:NO];
+                //[self tableView:myTableView cellForRowAtIndexPath:indexPath].selected = NO;
+                [[[UIAlertView alloc]initWithTitle:@"Instructions" message:@"You can scan any CD, DVD, Video Game, or Book and get a real time offer from AbundaTrade.com.  Simply hold your phone about 4 inches from any barcode and wait a couple seconds for the value to be captured.  If you like the value and want to add it to your list to submit to AbundaTrade.com simply hit the + button and it will populate your list for sale on your account at AbundaTrade.com.  Please contact us at Trade@AbundaTrade.com if you have any further questions."delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                break;
+                
+            case 2:
+                [self clickMyLogoutButton:nil];
+                
+            default:
+                break;
+        }
+    }
+    else{
+        DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+        DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
         
-        case 1:
-            [self clickMyLogoutButton:nil];
-            
-        default:
-            break;
+        switch (indexPath.row) {
+                
+            case 0:
+                [tableView deselectRowAtIndexPath:indexPath animated:NO];
+                [[[UIAlertView alloc]initWithTitle:@"Instructions" message:@"You can scan any CD, DVD, Video Game, or Book and get a real time offer from AbundaTrade.com.  Simply hold your phone about 4 inches from any barcode and wait a couple seconds for the value to be captured.  If you like the value and want to add it to your list to submit to AbundaTrade.com simply hit the + button and it will populate your list for sale on your account at AbundaTrade.com.  Please contact us at Trade@AbundaTrade.com if you have any further questions."delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                break;
+                
+            case 1:
+
+                [appDelegate.navController pushViewController:loginVC animated:NO];
+                appDelegate.navController.navigationBarHidden = YES;
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -129,7 +189,7 @@
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc]initWithNibName:@"DAMLoginViewController" bundle:nil];
     [self.navigationController pushViewController:loginVC animated:NO];
     appDelegate.navController.navigationBarHidden = YES;
-   // [self.navigationController popToRootViewControllerAnimated:NO];
+    // [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
 @end

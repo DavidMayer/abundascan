@@ -57,7 +57,6 @@
         self.navController.navigationBarHidden = YES;
     }
     [_window makeKeyAndVisible];
-    
     return YES;
 }
 

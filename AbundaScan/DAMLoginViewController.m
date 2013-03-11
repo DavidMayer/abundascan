@@ -42,11 +42,13 @@
     myTableView.dataSource = self;
     myTableView.delegate = self;
     myTableView.scrollEnabled = NO;
+    myTableView.frame = CGRectMake(0, 195, 320, 147);
     myUserNameTextField.returnKeyType = UIReturnKeyNext;
     myPasswordTextField.returnKeyType = UIReturnKeyDone;
     myPasswordTextField.secureTextEntry = YES;
     self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
     spinnerIsDown = YES;
+
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -174,7 +176,7 @@
         if (keyboardIsUp) {
         [self animateView];
         [currentTextField performSelector:@selector(resignFirstResponder) withObject:nil afterDelay:0.3];
-        gestureRecognizer.enabled = NO;
+       gestureRecognizer.enabled = NO;
         }
     }
 }
@@ -190,7 +192,7 @@
     }
 
     currentTextField = textField;
-    gestureRecognizer.enabled = YES;
+   gestureRecognizer.enabled = YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -243,11 +245,11 @@
     if (keyboardIsUp){
         [self animateView];
         [currentTextField resignFirstResponder];
-    [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height) / 2, 200, 120)];
+  [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height) / 2, 200, 120)];
     }
     
     else{
-        [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
+       [appDelegate.spinner startWithMessage:@"Signing in..." Dimensions:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
     }
     
     
@@ -304,7 +306,7 @@
     {
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner stop];
+      [appDelegate.spinner stop];
         spinnerIsDown = YES;
         [[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"We encountered a loading error. Please make sure you have service, then try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
@@ -316,7 +318,7 @@
     {
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate.spinner stop];
+       [appDelegate.spinner stop];
         spinnerIsDown = YES;
         
         if ([apiData length])

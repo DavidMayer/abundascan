@@ -301,8 +301,15 @@
     [dismissedReader dismissViewControllerAnimated:YES completion:nil];
     
     shouldUpdateView = YES;
-    myResultTextView.text = symbol.data;
-    [self getProductFromServerWithNumber: symbol.data];
+    NSString *upcCode = symbol.data;
+    
+    NSString *zeroChecker = [upcCode substringWithRange:NSMakeRange(0, 2)];
+    
+    if ([zeroChecker isEqualToString:@"00"]) {
+        upcCode = [upcCode substringFromIndex:2];
+    }
+      myResultTextView.text = upcCode;
+    [self getProductFromServerWithNumber: upcCode];
     
 }
 

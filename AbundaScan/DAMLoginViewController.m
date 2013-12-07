@@ -10,6 +10,19 @@
 #import "DAMAppDelegate.h"
 #import "DAMViewController.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "UIColor+FlatUI.h"
+#import "UISlider+FlatUI.h"
+#import "UIStepper+FlatUI.h"
+#import "UITabBar+FlatUI.h"
+#import "UINavigationBar+FlatUI.h"
+#import "FUIButton.h"
+#import "FUISwitch.h"
+#import "UIFont+FlatUI.h"
+#import "FUIAlertView.h"
+#import "UIBarButtonItem+FlatUI.h"
+#import "UIProgressView+FlatUI.h"
+#import "FUISegmentedControl.h"
+#import "UIPopoverController+FlatUI.h"
 
 @interface DAMLoginViewController ()
 
@@ -26,6 +39,7 @@
 @synthesize gestureRecognizer;
 @synthesize spinnerIsDown;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,6 +51,18 @@
 
 - (void)viewDidLoad
 {
+    
+    FUIButton * test = [[FUIButton alloc] initWithFrame:CGRectMake(20, 20, 20, 20)];
+    test.buttonColor = [UIColor emerlandColor];
+    test.shadowColor = [UIColor greenSeaColor];
+    test.shadowHeight = 3.0f;
+    test.cornerRadius = 6.0f;
+    test.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [test setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    [test setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    
+    [self.view addSubview:test];
+    
     myPasswordTextField.delegate = self;
     myUserNameTextField.delegate = self;
     myTableView.dataSource = self;

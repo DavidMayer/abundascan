@@ -98,13 +98,13 @@
             case 1:
                 cell.textLabel.text = @"Instructions";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
-                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                cell.textLabel.textAlignment = NSTextAlignmentCenter;
                 break;
                 
             case 2:
                 cell.textLabel.text = @"Sign Out";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
-                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                cell.textLabel.textAlignment = NSTextAlignmentCenter;
                 break;
                 
             default:
@@ -118,14 +118,14 @@
             case 0:
                 cell.textLabel.text = @"Instructions";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
-                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                cell.textLabel.textAlignment = NSTextAlignmentCenter;
                 myAutoScanSwitch.hidden = YES;
                 break;
                 
             case 1:
                 cell.textLabel.text = @"Sign In";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
-                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                cell.textLabel.textAlignment = NSTextAlignmentCenter;
                 break;
                 
         }

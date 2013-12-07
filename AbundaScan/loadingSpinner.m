@@ -27,7 +27,7 @@
         messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, frame.size.width, 40)];
         messageLabel.backgroundColor = [UIColor clearColor];
         messageLabel.textColor = [UIColor whiteColor];
-        messageLabel.textAlignment = UITextAlignmentCenter;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
         messageLabel.numberOfLines = 0;
         
         NSLog(@"2");

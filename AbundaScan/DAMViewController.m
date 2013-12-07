@@ -283,7 +283,7 @@
     }
 }
 
-- (void) imagePickerController: (UIImagePickerController*) reader
+- (void) imagePickerController: (UIImagePickerController*) dismissedReader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {
     // ADD: get the decode results
@@ -298,7 +298,7 @@
     
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
     //[reader dismissModalViewControllerAnimated: YES];
-    [reader dismissViewControllerAnimated:YES completion:nil];
+    [dismissedReader dismissViewControllerAnimated:YES completion:nil];
     
     shouldUpdateView = YES;
     myResultTextView.text = symbol.data;

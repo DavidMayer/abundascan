@@ -26,6 +26,17 @@
 		9D04F208185315E60046C383 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F1F3185315E60046C383 /* UITabBar+FlatUI.m */; };
 		9D04F209185315E60046C383 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F1F5185315E60046C383 /* UITableViewCell+FlatUI.m */; };
 		9D04F20A185315E60046C383 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F1F7185315E60046C383 /* UIToolbar+FlatUI.m */; };
+		9D04F216185318CE0046C383 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F20C185318CE0046C383 /* Lato-Black.ttf */; };
+		9D04F217185318CE0046C383 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F20D185318CE0046C383 /* Lato-BlackItalic.ttf */; };
+		9D04F218185318CE0046C383 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F20E185318CE0046C383 /* Lato-Bold.ttf */; };
+		9D04F219185318CE0046C383 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F20F185318CE0046C383 /* Lato-BoldItalic.ttf */; };
+		9D04F21A185318CE0046C383 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F210185318CE0046C383 /* Lato-Hairline.ttf */; };
+		9D04F21B185318CE0046C383 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F211185318CE0046C383 /* Lato-HairlineItalic.ttf */; };
+		9D04F21C185318CE0046C383 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F212185318CE0046C383 /* Lato-Italic.ttf */; };
+		9D04F21D185318CE0046C383 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F213185318CE0046C383 /* Lato-Light.ttf */; };
+		9D04F21E185318CE0046C383 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F214185318CE0046C383 /* Lato-LightItalic.ttf */; };
+		9D04F21F185318CE0046C383 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F215185318CE0046C383 /* Lato-Regular.ttf */; };
+		9D04F221185319980046C383 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D04F220185319980046C383 /* CoreText.framework */; };
 		9D933158166ACFBB0050E29E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933157166ACFBB0050E29E /* UIKit.framework */; };
 		9D93315A166ACFBB0050E29E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D933159166ACFBB0050E29E /* Foundation.framework */; };
 		9D93315C166ACFBB0050E29E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D93315B166ACFBB0050E29E /* CoreGraphics.framework */; };
@@ -126,6 +137,17 @@
 		9D04F1F5185315E60046C383 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
 		9D04F1F6185315E60046C383 /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
 		9D04F1F7185315E60046C383 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
+		9D04F20C185318CE0046C383 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		9D04F20D185318CE0046C383 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		9D04F20E185318CE0046C383 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		9D04F20F185318CE0046C383 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9D04F210185318CE0046C383 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		9D04F211185318CE0046C383 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		9D04F212185318CE0046C383 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		9D04F213185318CE0046C383 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		9D04F214185318CE0046C383 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		9D04F215185318CE0046C383 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		9D04F220185319980046C383 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		9D933153166ACFBB0050E29E /* AbundaScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbundaScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D933157166ACFBB0050E29E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9D933159166ACFBB0050E29E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D04F221185319980046C383 /* CoreText.framework in Frameworks */,
 				9D93319D166AD08D0050E29E /* AVFoundation.framework in Frameworks */,
 				9D93319B166AD0850050E29E /* CoreMedia.framework in Frameworks */,
 				9D933197166AD0700050E29E /* CoreVideo.framework in Frameworks */,
@@ -239,6 +262,7 @@
 		9D04F1D01853159D0046C383 /* FlatUI */ = {
 			isa = PBXGroup;
 			children = (
+				9D04F20B185318CE0046C383 /* Resources */,
 				9D04F1D1185315E60046C383 /* FlatUIKit.h */,
 				9D04F1D2185315E60046C383 /* FUIAlertView.h */,
 				9D04F1D3185315E60046C383 /* FUIAlertView.m */,
@@ -282,16 +306,33 @@
 			name = FlatUI;
 			sourceTree = "<group>";
 		};
+		9D04F20B185318CE0046C383 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D04F20C185318CE0046C383 /* Lato-Black.ttf */,
+				9D04F20D185318CE0046C383 /* Lato-BlackItalic.ttf */,
+				9D04F20E185318CE0046C383 /* Lato-Bold.ttf */,
+				9D04F20F185318CE0046C383 /* Lato-BoldItalic.ttf */,
+				9D04F210185318CE0046C383 /* Lato-Hairline.ttf */,
+				9D04F211185318CE0046C383 /* Lato-HairlineItalic.ttf */,
+				9D04F212185318CE0046C383 /* Lato-Italic.ttf */,
+				9D04F213185318CE0046C383 /* Lato-Light.ttf */,
+				9D04F214185318CE0046C383 /* Lato-LightItalic.ttf */,
+				9D04F215185318CE0046C383 /* Lato-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9D933148166ACFBB0050E29E = {
 			isa = PBXGroup;
 			children = (
-				9D04F1D01853159D0046C383 /* FlatUI */,
 				9D93319C166AD08D0050E29E /* AVFoundation.framework */,
 				9D93319A166AD0850050E29E /* CoreMedia.framework */,
 				9D933198166AD0790050E29E /* CoreAudio.framework */,
 				9D933196166AD0700050E29E /* CoreVideo.framework */,
 				9D933194166AD0690050E29E /* QuartzCore.framework */,
 				9D933192166AD0600050E29E /* libiconv.dylib */,
+				9D04F1D01853159D0046C383 /* FlatUI */,
 				9D93359B16B3C1550050E29E /* AbundaScan */,
 				9D933181166ACFBC0050E29E /* AbundaScanTests */,
 				9D93357516B3C14B0050E29E /* ZBarSDK */,
@@ -312,6 +353,7 @@
 		9D933156166ACFBB0050E29E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D04F220185319980046C383 /* CoreText.framework */,
 				9D933157166ACFBB0050E29E /* UIKit.framework */,
 				9D933159166ACFBB0050E29E /* Foundation.framework */,
 				9D93315B166ACFBB0050E29E /* CoreGraphics.framework */,
@@ -557,27 +599,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D93359716B3C14B0050E29E /* zbar-back.png in Resources */,
+				9D04F216185318CE0046C383 /* Lato-Black.ttf in Resources */,
 				9D93359816B3C14B0050E29E /* zbar-help.html in Resources */,
 				9D93359916B3C14B0050E29E /* zbar-helpicons.png in Resources */,
+				9D04F21C185318CE0046C383 /* Lato-Italic.ttf in Resources */,
 				9D93359A16B3C14B0050E29E /* zbar-samples.png in Resources */,
+				9D04F21E185318CE0046C383 /* Lato-LightItalic.ttf in Resources */,
 				9D93376C16B3C1560050E29E /* Icon-Small.png in Resources */,
 				9D93376D16B3C1560050E29E /* Icon-Small@2x.png in Resources */,
 				9D93376E16B3C1560050E29E /* Icon.png in Resources */,
 				9D93376F16B3C1560050E29E /* Icon@2x.png in Resources */,
+				9D04F219185318CE0046C383 /* Lato-BoldItalic.ttf in Resources */,
 				9D93377016B3C1570050E29E /* iTunesArtwork.png in Resources */,
 				9D9338AB16B3C1570050E29E /* DAMViewController-5.xib in Resources */,
 				9D9338AD16B3C1570050E29E /* DAMViewController.xib in Resources */,
 				9D9338AE16B3C1570050E29E /* Default-568h@2x.png in Resources */,
 				9D9338AF16B3C1570050E29E /* Default@2x.png in Resources */,
 				9D9338B016B3C1570050E29E /* InfoPlist.strings in Resources */,
+				9D04F21D185318CE0046C383 /* Lato-Light.ttf in Resources */,
 				9D9338B216B3C1570050E29E /* logo.png in Resources */,
+				9D04F217185318CE0046C383 /* Lato-BlackItalic.ttf in Resources */,
+				9D04F21B185318CE0046C383 /* Lato-HairlineItalic.ttf in Resources */,
 				9D9338B416B3C1570050E29E /* ScanButton.png in Resources */,
 				9D9338B516B3C1570050E29E /* ViewBox.png in Resources */,
 				9D9338B616B3C1570050E29E /* WhiteBox.png in Resources */,
+				9D04F21A185318CE0046C383 /* Lato-Hairline.ttf in Resources */,
 				9D9338C316BA42750050E29E /* DAMLoginViewController.xib in Resources */,
 				9DB796D916C70A43009DD48D /* DAMSettingsViewController.xib in Resources */,
+				9D04F218185318CE0046C383 /* Lato-Bold.ttf in Resources */,
 				9DB796DE16C8D439009DD48D /* plus.png in Resources */,
 				9DDF0ECC16CE2E8400D6F8FC /* gear.png in Resources */,
+				9D04F21F185318CE0046C383 /* Lato-Regular.ttf in Resources */,
 				9DDF0ECF16CE312B00D6F8FC /* plus@2x.png in Resources */,
 				9DDF0ED016CE312B00D6F8FC /* gear@2x.png in Resources */,
 				9DDF0ED216CF420400D6F8FC /* AbundaScanStacked@2x.png in Resources */,
@@ -742,7 +794,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AbundaScan/AbundaScan-Prefix.pch";
 				INFOPLIST_FILE = "AbundaScan/AbundaScan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../BarcodeScanner/ZBarSDK\"",
@@ -764,7 +816,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AbundaScan/AbundaScan-Prefix.pch";
 				INFOPLIST_FILE = "AbundaScan/AbundaScan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../BarcodeScanner/ZBarSDK\"",

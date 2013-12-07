@@ -184,7 +184,7 @@
 
 - (IBAction)clickMyLogoutButton:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:FALSE forKey:@"token"];
-    [[NSUserDefaults standardUserDefaults] setObject:NO forKey:@"autoscan"];
+    [[NSUserDefaults standardUserDefaults] setObject:FALSE forKey:@"autoscan"];
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc]initWithNibName:@"DAMLoginViewController" bundle:nil];
     [self.navigationController pushViewController:loginVC animated:NO];

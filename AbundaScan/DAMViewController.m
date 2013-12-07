@@ -38,11 +38,13 @@
 @synthesize myAddButton;
 @synthesize myLeftButton;
 @synthesize symbol;
+@synthesize reader;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -66,6 +68,31 @@
             [self.view sendSubviewToBack:roundedRectView];
         }
     }
+    
+    reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    reader.showsHelpOnFail = NO;
+    
+    ZBarImageScanner *scanner = reader.scanner;
+    // TODO: (optional) additional reader configuration here
+    
+    // EXAMPLE: disable rarely used I2/5 to improve performance
+    [scanner setSymbology: ZBAR_I25
+                   config: ZBAR_CFG_ENABLE
+                       to: 0];
+    
+    [scanner setSymbology: ZBAR_QRCODE
+                   config:ZBAR_CFG_ENABLE
+                       to:0];
+    
+    /*if(TARGET_IPHONE_SIMULATOR) {
+      ZBarCameraSimulator *cameraSim = [[ZBarCameraSimulator alloc]
+                     initWithViewController: self];
+        ZBarReaderView *readerView = [[ZBarReaderView alloc]init];
+        cameraSim.readerView =  readerView;
+    }*/
+    
     
     originalImageViewFrame = myResultImageView.frame;
     noImageLabel.hidden = YES;
@@ -216,8 +243,9 @@
 }
 
 - (IBAction)clickMyScanButton:(id)sender {
-    noImageLabel.hidden = YES;
     
+    noImageLabel.hidden = YES;
+                            /*
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
     reader.supportedOrientationsMask = ZBarOrientationMaskAll;
@@ -233,10 +261,11 @@
     [scanner setSymbology: ZBAR_QRCODE
                    config:ZBAR_CFG_ENABLE
                        to:0];
+                                            */
     
     // present and release the controller
-    [self presentModalViewController: reader
-                            animated: YES];
+    [self presentViewController: reader
+                            animated: YES completion:nil];
     roundedRectView.layer.backgroundColor = UIColorFromRGB(0x005796).CGColor;
     infoView.hidden = YES;
     myAddButton.enabled = NO;
@@ -268,7 +297,8 @@
     //  myResultImageView.image =[info objectForKey: UIImagePickerControllerOriginalImage];
     
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
-    [reader dismissModalViewControllerAnimated: YES];
+    //[reader dismissModalViewControllerAnimated: YES];
+    [reader dismissViewControllerAnimated:YES completion:nil];
     
     shouldUpdateView = YES;
     myResultTextView.text = symbol.data;

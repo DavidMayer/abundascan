@@ -48,6 +48,8 @@
     myPasswordTextField.secureTextEntry = YES;
     self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
     spinnerIsDown = YES;
+    
+    NSLog(@"eh?");
 
     
     [super viewDidLoad];

@@ -260,12 +260,27 @@
     noImageLabel.hidden = YES;
 
     
+    //REMINDER: Make sure this only works on the simulator
+    // Simulator debug logic
+    
+    if(TARGET_IPHONE_SIMULATOR) {
+        NSLog(@"Sim");
+        
+        //[self getProductFromServerWithNumber: @"9781741793154"];
+        [self getProductFromServerWithNumber: @"8394829204934"];
+        shouldUpdateView = YES;
+        return;
+    }
+
+    
+    
     // present the reader controller
     [self presentViewController: reader
                             animated: YES completion:nil];
     roundedRectView.layer.backgroundColor = UIColorFromRGB(0x005796).CGColor;
     infoView.hidden = YES;
     myAddButton.enabled = NO;
+    
     
 }
 
@@ -380,6 +395,7 @@
     {
         
         DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
         [appDelegate.spinner stop];
         
         if ([apiData length] && shouldUpdateView)
@@ -392,8 +408,12 @@
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[myDict objectForKey:@"imagel"]]];
             UIImage *myImage = [UIImage imageWithData:imageData];
             
-            if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
+            if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"]){
+                
+                NSLog(@"item not found");
+                
                 myAddButton.enabled = NO;
+            }
             else {
                 myAddButton.enabled = YES;
                 if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoscan"]) 
@@ -402,6 +422,13 @@
             
             [self sizeImageView:myResultImageView AndPlaceImage:myImage];
             
+            
+        }
+        else if (![apiData length]){
+            
+            NSLog(@"item not found");
+            
+            myAddButton.enabled = NO;
             
         }
     }

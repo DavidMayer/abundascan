@@ -46,13 +46,15 @@
     [super viewDidLoad];
     
     
+    //determine which device view to present
+    
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         CGSize result = [[UIScreen mainScreen] bounds].size;
         
         if(result.height == 480)
         {
-            //iphone4View.hidden = NO;
+            //iPhone 4
             roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 52, 292, 244)];
             iphone4View.backgroundColor = UIColorFromRGB(0xe5e5e5);
             [iphone4View addSubview:roundedRectView];
@@ -61,13 +63,14 @@
         if(result.height == 568)
         {
             // iPhone 5
-            //iphone4View.hidden = YES;
             roundedRectView = [[UIView alloc]initWithFrame:CGRectMake(14, 62 - 44, 292, 244)];
             self.view.backgroundColor = UIColorFromRGB(0xe5e5e5);
             [self.view addSubview:roundedRectView];
             [self.view sendSubviewToBack:roundedRectView];
         }
     }
+    
+    //set up ZBar scanner
     
     reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
@@ -78,6 +81,13 @@
     // TODO: (optional) additional reader configuration here
     
     // EXAMPLE: disable rarely used I2/5 to improve performance
+    [scanner setSymbology: ZBAR_EAN13
+                   config:ZBAR_CFG_ENABLE
+                       to:1];
+    [scanner setSymbology:ZBAR_UPCA
+                   config:ZBAR_CFG_ENABLE
+                       to:1];
+    
     [scanner setSymbology: ZBAR_I25
                    config: ZBAR_CFG_ENABLE
                        to: 0];
@@ -94,14 +104,18 @@
     }*/
     
     
+    //Sets up view
+    
     originalImageViewFrame = myResultImageView.frame;
     noImageLabel.hidden = YES;
     myScanButton.titleLabel.textColor = [UIColor darkGrayColor];
-    roundedRectView.layer.backgroundColor = [UIColor whiteColor].CGColor;//UIColorFromRGB(0x005796).CGColor;
+    roundedRectView.layer.backgroundColor = [UIColor whiteColor].CGColor;
     roundedRectView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     roundedRectView.layer.borderWidth = 2;
     roundedRectView.layer.cornerRadius = 10;
     
+    
+    //presents first time instructions alert
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasStartedApp"]) {
         [[[UIAlertView alloc]initWithTitle:@"Instructions" message:@"You can scan any CD, DVD, Video Game, or Book and get a real time offer from AbundaTrade.com.  Simply hold your phone about 4 inches from any barcode and wait a couple seconds for the value to be captured.  If you like the value and want to add it to your list to submit to AbundaTrade.com simply hit the + button and it will populate your list for sale on your account at AbundaTrade.com.  Please contact us at Trade@AbundaTrade.com if you have any further questions. You can review these instructions any time you want from your settings."/*@"AbundaScan now allows you to add scanned items to your AbundaTrade.com list! Just click the plus button in the top right corner after you've scanned an item." */delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
@@ -134,49 +148,34 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    //sets up nav controller
+    
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.navController.navigationBarHidden = NO;
     appDelegate.navController.navigationBar.tintColor = UIColorFromRGB(0x005796);
-    
-   
-   /* UIView *myRightButtonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    UIButton *myRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    myRightButton.frame = CGRectMake(0, 0, 40, 40);
-    [myRightButton addTarget:self action:@selector(addButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    UIImageView *myRightButtonImageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 30, 30)];
-    myRightButtonImageView.image = [UIImage imageNamed:@"plus.png"];
-    [myRightButton addSubview:myRightButtonImageView];
-    [myRightButtonView addSubview:myRightButton];
-    myAddButton = [[UIBarButtonItem alloc] initWithCustomView:myRightButtonView];
-    [myAddButton setStyle:UIBarButtonSystemItemAdd];
-    self.navigationItem.rightBarButtonItem = myAddButton;*/
-    
     
     
     UIImage *plus = [UIImage imageNamed:@"plus.png"];
     NSLog(@"plus height: %f", plus.size.height);
     NSLog(@"plus width: %f", plus.size.width);
-    myAddButton = [[UIBarButtonItem alloc]initWithImage:plus/*[UIImage imageNamed:@"plus.png"]*/ style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
+    myAddButton = [[UIBarButtonItem alloc]initWithImage:plus style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     NSLog(@"plus height: %f", plus.size.height);
     NSLog(@"plus width: %f", plus.size.width);
-    //myAddButton.image = [[UIImage imageNamed:@"plus.png"]stretchableImageWithLeftCapWidth:10 topCapHeight:10] ;
     self.navigationItem.rightBarButtonItem = myAddButton;
     if ([myResultTitleLabel.text isEqualToString:@""] || [myResultTitleLabel.text isEqualToString:@"Unknown"])
         myAddButton.enabled = NO;
     
-  /*  myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonSystemItemAdd target:self action:@selector(loginButtonTapped)];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){*/
         UIImage *gear = [UIImage imageNamed:@"gear.png"];
         
         NSLog(@"gear height: %f", gear.size.height);
         NSLog(@"gear width: %f", gear.size.width);
         
-        myLeftButton = [[UIBarButtonItem alloc]initWithImage:gear/*[UIImage imageNamed:@"gear.png"]*/ style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
+        myLeftButton = [[UIBarButtonItem alloc]initWithImage:gear style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
         
         NSLog(@"gear height: %f", gear.size.height);
         NSLog(@"gear width: %f", gear.size.width);
-        //myLeftButton = [[UIBarButtonItem alloc]initWithTitle:@"Settings" style:UIBarButtonSystemItemAdd target:self action:@selector(settingsButtonTapped)];
-    //}
+
     self.navigationItem.leftBarButtonItem = myLeftButton;
     
     self.navigationItem.leftBarButtonItem = myLeftButton;
@@ -186,7 +185,12 @@
 -(void)addButtonTapped{
     
     NSLog(@"add");
+    
+    //if the user is logged in
+    
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"]){
+        
+        //add the item to the Abundatrade calculator list
         shouldUpdateView = NO;
             NSString *urlString = [[[@"http://abundatrade.com/trade/process/request.php?action=lookup_item&product_code=" stringByAppendingString:myResultUPCLabel.text] stringByAppendingString:@"&product_qty=1&mobile_scan=true&sync_key="] stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
         
@@ -206,12 +210,17 @@
             NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
             self.apiConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
         
+        //if it is the first time a user has added to a list, alert user to the autoscan feature
+        
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasAddedToList"]) {
             [[[UIAlertView alloc]initWithTitle:@"Auto-Scan" message:@"If you don't like manually adding items to your list, check out our Auto-Scan feature. Each item you scan will automatically be added to your AbundaTrade.com list. You can find it in your settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Settings", nil] show];
             [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"hasAddedToList"];
         }
             
         }
+    
+    //if user is not logged in, prompt them to log in
+    
     else{
         [[[UIAlertView alloc]initWithTitle:@"Login Required" message:@"To add to your list, you must be logged in to your AbundaTrade.com account. Visit AbundaTrade.com to register if you don't have one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
@@ -220,6 +229,8 @@
 }
 
 -(void)settingsButtonTapped{
+    
+    //present settings view
     
     DAMSettingsViewController *settingsVC = [[DAMSettingsViewController alloc]initWithNibName:@"DAMSettingsViewController" bundle:nil];
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -236,6 +247,8 @@
 
 -(void)loginButtonTapped{
     
+    //unused method (?) to launch the log in view
+    
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
     DAMAppDelegate *appDelegate = (DAMAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.navController pushViewController:loginVC animated:NO];
@@ -245,36 +258,20 @@
 - (IBAction)clickMyScanButton:(id)sender {
     
     noImageLabel.hidden = YES;
-                            /*
-    ZBarReaderViewController *reader = [ZBarReaderViewController new];
-    reader.readerDelegate = self;
-    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+
     
-    ZBarImageScanner *scanner = reader.scanner;
-    // TODO: (optional) additional reader configuration here
-    
-    // EXAMPLE: disable rarely used I2/5 to improve performance
-    [scanner setSymbology: ZBAR_I25
-                   config: ZBAR_CFG_ENABLE
-                       to: 0];
-    
-    [scanner setSymbology: ZBAR_QRCODE
-                   config:ZBAR_CFG_ENABLE
-                       to:0];
-                                            */
-    
-    // present and release the controller
+    // present the reader controller
     [self presentViewController: reader
                             animated: YES completion:nil];
     roundedRectView.layer.backgroundColor = UIColorFromRGB(0x005796).CGColor;
     infoView.hidden = YES;
     myAddButton.enabled = NO;
     
-    // [reader release];
-    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //Depending on the alert view loaded, perform the correct action when the button is pressed
     
     if (buttonIndex == 1 && [alertView.title isEqualToString:@"Auto-Scan"])
         [self settingsButtonTapped];
@@ -286,29 +283,35 @@
 - (void) imagePickerController: (UIImagePickerController*) dismissedReader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {
-    // ADD: get the decode results
+    // Once a barcode has been recognized
+    
+    
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
-    //ZBarSymbol *symbol = nil;
+
     for(symbol in results)
         // EXAMPLE: just grab the first barcode
         break;
     
-    //  myResultImageView.image =[info objectForKey: UIImagePickerControllerOriginalImage];
+    //dismiss the reader view
     
-    // ADD: dismiss the controller (NB dismiss from the *reader*!)
-    //[reader dismissModalViewControllerAnimated: YES];
     [dismissedReader dismissViewControllerAnimated:YES completion:nil];
+    
+    //grab the UPC Code
     
     shouldUpdateView = YES;
     NSString *upcCode = symbol.data;
     
-    NSString *zeroChecker = [upcCode substringWithRange:NSMakeRange(0, 2)];
+   /* NSString *zeroChecker = [upcCode substringWithRange:NSMakeRange(0, 2)];
     
     if ([zeroChecker isEqualToString:@"00"]) {
         upcCode = [upcCode substringFromIndex:2];
-    }
+    } */
+    
       myResultTextView.text = upcCode;
+    
+    //And get the correct product from the server
+    
     [self getProductFromServerWithNumber: upcCode];
     
 }
@@ -319,9 +322,13 @@
     
     NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
     NSNumber *myNumericChecker = [format numberFromString:productNumber];
+    
+    //If the upc isn't all numeric (maybe never happens?)
     if (myNumericChecker == nil) {
         [[[UIAlertView alloc]initWithTitle:@"Invalid UPC" message:@"Please scan a valid UPC code." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
+    
+    //if it is all numeric
     else{
         NSString *urlString;
         

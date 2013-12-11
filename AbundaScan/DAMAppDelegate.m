@@ -23,13 +23,16 @@
     
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
+    
+    //create loading spinner and add it to the window
+    
     self.spinner = [[loadingSpinner alloc] initWithFrame:CGRectMake((bounds.size.width - 200) / 2, (bounds.size.height - 125) / 2, 200, 120)];
-   
     [_window addSubview:self.spinner];
     
-    //DAMViewController *vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
     UIViewController *vc;
     
+    
+    //Detect the device, use the appropriate view controller for the device. Note, does this mean iPad and Mini are broken?
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -38,7 +41,6 @@
         if(result.height == 480)
         {
             vc = [[DAMViewController alloc] initWithNibName:@"DAMViewController" bundle:nil];
-            //vc = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
         }
         if(result.height == 568)
         {
@@ -46,17 +48,22 @@
         }
     }
     
+    //set up nav controller with main view controller as the root.
+    
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.navController.toolbarHidden = YES;
-    _window.rootViewController = self.navController;//vc;
-   // vc.showLoginVC;
+    _window.rootViewController = self.navController;
     DAMLoginViewController *loginVC = [[DAMLoginViewController alloc] initWithNibName:@"DAMLoginViewController" bundle:nil];
+    
+    //If the user is not already logged in, present the login controller
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"token"]) {
         [self.navController pushViewController:loginVC animated:YES];
         self.navController.navigationBarHidden = YES;
     }
+    
     [_window makeKeyAndVisible];
+    
     return YES;
 }
 

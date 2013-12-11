@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     
-    FUIButton * test = [[FUIButton alloc] initWithFrame:CGRectMake(20, 20, 20, 20)];
+    /*FUIButton * test = [[FUIButton alloc] initWithFrame:CGRectMake(45, 350, 240, 45)];
     test.buttonColor = [UIColor emerlandColor];
     test.shadowColor = [UIColor greenSeaColor];
     test.shadowHeight = 3.0f;
@@ -60,8 +60,9 @@
     test.titleLabel.font = [UIFont boldFlatFontOfSize:16];
     [test setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     [test setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    test.titleLabel.text = @"Sign In";
     
-    [self.view addSubview:test];
+    [self.view addSubview:test];*/
     
     myPasswordTextField.delegate = self;
     myUserNameTextField.delegate = self;

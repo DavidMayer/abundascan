@@ -260,7 +260,6 @@
     noImageLabel.hidden = YES;
 
     
-    //REMINDER: Make sure this only works on the simulator
     // Simulator debug logic
     
     if(TARGET_IPHONE_SIMULATOR) {
@@ -428,6 +427,7 @@
             
             NSLog(@"item not found");
             
+            [self sizeImageView:myResultImageView AndPlaceImage:nil];
             myAddButton.enabled = NO;
             
         }
@@ -441,7 +441,12 @@
     NSLog(@"Original Frame height: %f", myResultImageView.frame.size.height);
     NSLog(@"Original Frame width: %f", myResultImageView.frame.size.width);
     
-    if (!image) {
+    
+    if(!image && [myResultTitleLabel.text isEqualToString:@""]){
+        noImageLabel.text = @"No Results Found";
+        noImageLabel.hidden = NO;
+    }
+    else if (!image) {
         //display default no image text
         noImageLabel.hidden = NO;
         
